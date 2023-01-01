@@ -164,6 +164,12 @@ $fn = new custom_functions;
                         <i class="fa fa-home" class="active"></i> <span>Home</span>
                     </a>
                 </li>
+                <li class="treeview">
+                    <a href="panchangam.php">
+                        <i class="fa fa-calendar"></i>
+                        <span>Panchangam</span>
+                    </a>
+                </li>
                 
             </ul>
             </section>
