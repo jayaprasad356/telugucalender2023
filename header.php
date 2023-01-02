@@ -170,7 +170,48 @@ $fn = new custom_functions;
                         <span>Panchangam</span>
                     </a>
                 </li>
-                
+                <li class="treeview">
+                    <a href="bulk-panchangam-upload.php">
+                        <i class="fa fa-calendar"></i>
+                        <span>Bulk Upload Panchangam</span>
+                    </a>
+                </li>
+                <li class="treeview">
+                    <a href="bulk-panchangam-tab-upload.php">
+                        <i class="fa fa-calendar"></i>
+                        <span>Upload Panchangam Tab</span>
+                    </a>
+                </li>
+                <li class="treeview">
+                    <a href="festivals.php">
+                        <i class="fa fa-calendar"></i>
+                        <span>Festivals</span>
+                    </a>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-calendar"></i>
+                        <span>Muhurtham</span>
+                        <i class="fa fa-angle-right pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                          <li><a href="muhurtham.php"><i class="fa fa-angle-right"></i>Muhurtham</a></li>
+                          <li><a href="muhurtham-tab.php"><i class="fa fa-angle-right"></i>Muhurtham Tab</a></li>
+
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-calendar"></i>
+                        <span>Rashi</span>
+                        <i class="fa fa-angle-right pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                          <li><a href="rashi.php"><i class="fa fa-angle-right"></i>Rashi</a></li>
+                          <li><a href="rashi-tab.php"><i class="fa fa-angle-right"></i>Rashi Tab</a></li>
+
+                    </ul>
+                </li>
             </ul>
             </section>
             <!-- /.sidebar -->

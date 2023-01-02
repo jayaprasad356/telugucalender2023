@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 01, 2023 at 04:11 PM
+-- Generation Time: Jan 02, 2023 at 12:19 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -20,6 +20,67 @@ SET time_zone = "+00:00";
 --
 -- Database: `telugu_calendar`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `festivals`
+--
+
+CREATE TABLE `festivals` (
+  `id` int(11) NOT NULL,
+  `date` date DEFAULT NULL,
+  `festival` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `festivals`
+--
+
+INSERT INTO `festivals` (`id`, `date`, `festival`) VALUES
+(1, '2023-01-17', 'Pongal'),
+(2, '2022-11-24', 'Diwali');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `muhurtham`
+--
+
+CREATE TABLE `muhurtham` (
+  `id` int(11) NOT NULL,
+  `muhurtham` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `muhurtham`
+--
+
+INSERT INTO `muhurtham` (`id`, `muhurtham`) VALUES
+(1, 'Marriage Muhurtham'),
+(2, 'Kids Name Muhurtham'),
+(3, 'Home Muhurtham'),
+(4, 'Vehicle Muhurtham');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `muhurtham_tab`
+--
+
+CREATE TABLE `muhurtham_tab` (
+  `id` int(11) NOT NULL,
+  `muhurtham_id` int(11) NOT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `description` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `muhurtham_tab`
+--
+
+INSERT INTO `muhurtham_tab` (`id`, `muhurtham_id`, `title`, `description`) VALUES
+(4, 3, 'Hello Everyone', 'This is the sample');
 
 -- --------------------------------------------------------
 
@@ -92,9 +153,66 @@ INSERT INTO `panchangam_variant` (`id`, `panchangam_id`, `title`, `description`)
 (42, 4, 'వర్జ్యం', '12:16 pm – 1:57 pm'),
 (43, 7, 'నక్షత్రం', 'Karanam');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rashi`
+--
+
+CREATE TABLE `rashi` (
+  `id` int(11) NOT NULL,
+  `rashi` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `rashi`
+--
+
+INSERT INTO `rashi` (`id`, `rashi`) VALUES
+(1, 'Mesham');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rashi_tab`
+--
+
+CREATE TABLE `rashi_tab` (
+  `id` int(11) NOT NULL,
+  `rashi_id` int(11) DEFAULT NULL,
+  `date` text DEFAULT NULL,
+  `title` text DEFAULT NULL,
+  `description` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `rashi_tab`
+--
+
+INSERT INTO `rashi_tab` (`id`, `rashi_id`, `date`, `title`, `description`) VALUES
+(1, 1, '2023-01-12', 'This is My rashi', 'మిమ్మల్ని ప్రశాంతంగా, కూల్ గా ఉంచగల పనులలో నిమగ్నమవండి. చిరకాలంగా వసూలవని బాకీలు వసూలు కావడం వలన ఆర్థిక పరిస్థితి మెరుగుపడుతుంది. మిత్రులతో గడిపే సాయంత్రాలు, లేదా షాపింగ్ ఎక్కువ సంతోషదాయకమే కాక ఉద్వేగభరిత ఉత్సాహాన్ని ఇస్తాయి. ప్రతిరోజూ ప్రేమలో పడడం అనే స్వభావాన్ని మార్చుకొండి. మీరూపురేఖలను, వ్యక్తిత్వాన్ని, మెరుగు పరుచుకోవడానికి, చేసిన పరిశ్రమ మీకు సంతృప్తిని కలిగిస్తుంది. వైవాహిక జీవితంలో క్లిష్టతరమైన దశ తర్వాత ఈ రోజు మీకు కాస్త ఉపశమనాన్ని కలిగిస్తుంది. మీరు ఈరోజు అన్నిభాదలను మర్చిపోతారు,సృజనాత్మకంగా ఆలోచించటానికి ప్రయత్నిస్తారు.');
+
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `festivals`
+--
+ALTER TABLE `festivals`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `muhurtham`
+--
+ALTER TABLE `muhurtham`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `muhurtham_tab`
+--
+ALTER TABLE `muhurtham_tab`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `panchangam`
@@ -109,8 +227,38 @@ ALTER TABLE `panchangam_variant`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `rashi`
+--
+ALTER TABLE `rashi`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `rashi_tab`
+--
+ALTER TABLE `rashi_tab`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `festivals`
+--
+ALTER TABLE `festivals`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `muhurtham`
+--
+ALTER TABLE `muhurtham`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `muhurtham_tab`
+--
+ALTER TABLE `muhurtham_tab`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `panchangam`
@@ -123,6 +271,18 @@ ALTER TABLE `panchangam`
 --
 ALTER TABLE `panchangam_variant`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+
+--
+-- AUTO_INCREMENT for table `rashi`
+--
+ALTER TABLE `rashi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `rashi_tab`
+--
+ALTER TABLE `rashi_tab`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
