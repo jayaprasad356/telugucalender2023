@@ -8,13 +8,14 @@ $fn = new custom_functions;
 <?php
 if (isset($_POST['btnAdd'])) {
         $rashi_id= $db->escapeString($_POST['rashi_id']);
-        $date= $db->escapeString($_POST['date']);
+        $year= $db->escapeString($_POST['year']);
+        $month= $db->escapeString($_POST['month']);
         $title= $db->escapeString($_POST['title']);
         $description= $db->escapeString($_POST['description']);
 
-       if (!empty($rashi_id) && !empty($date) && !empty($title) && !empty($description)) {
+       if (!empty($rashi_id) && !empty($year) && !empty($month) && !empty($title) && !empty($description)) {
          
-            $sql_query = "INSERT INTO rashi_tab (rashi_id,date,title,description)VALUES('$rashi_id','$date','$title','$description')";
+            $sql_query = "INSERT INTO rashi_tab (rashi_id,year,month,title,description)VALUES('$rashi_id','$year','$month','$title','$description')";
             $db->sql($sql_query);
             $result = $db->getResult();
             if (!empty($result)) {
@@ -70,9 +71,38 @@ if (isset($_POST['btnAdd'])) {
                                                 <?php } ?>
                                         </select>
                                     </div>
-                                    <div class="col-md-4">
-                                            <label for="exampleInputEmail1">Date</label> <i class="text-danger asterik">*</i><?php echo isset($error['date']) ? $error['date'] : ''; ?>
-                                            <input type="date" class="form-control" name="date" id = "date" required>
+                                </div>
+                            </div>
+                             <br>
+                             <div class="row">
+                                <div class="form-group">
+                                    <div class='col-md-6'>
+                                        <label for="">Year</label> <i class="text-danger asterik">*</i>
+                                        <select id='year'  name="year" class='form-control' required>
+                                            <option value="">Select Year</option>
+                                                <?php
+                                                $sql = "SELECT * FROM `years`";
+                                                $db->sql($sql);
+                                                $result = $db->getResult();
+                                                foreach ($result as $value) {
+                                                ?>
+                                                    <option value='<?= $value['year'] ?>'><?= $value['year'] ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <div class='col-md-6'>
+                                        <label for="">Month</label> <i class="text-danger asterik">*</i>
+                                        <select id='month' name="month" class='form-control' required>
+                                            <option value="">Select Month</option>
+                                                <?php
+                                                $sql = "SELECT * FROM `months`";
+                                                $db->sql($sql);
+                                                $result = $db->getResult();
+                                                foreach ($result as $value) {
+                                                ?>
+                                                    <option value='<?= $value['month'] ?>'><?= $value['month'] ?></option>
+                                            <?php } ?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -121,7 +151,7 @@ if (isset($_POST['btnAdd'])) {
         ignore: [],
         debug: false,
         rules: {
-            date: "required",
+            year: "required",
             rashi_id: "required",
             title: "required",
             description: "required",

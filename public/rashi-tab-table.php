@@ -23,7 +23,8 @@
                                 <tr>
                                     <th  data-field="id" data-sortable="true">ID</th>
                                     <th data-field="rashi" data-sortable="true">Rashi</th>
-                                    <th data-field="date" data-sortable="true">Date</th>
+                                    <th data-field="year" data-sortable="true">Year</th>
+                                    <th data-field="month" data-sortable="true">Month</th>
                                     <th data-field="title" data-sortable="true">title</th>
                                     <th data-field="description" data-sortable="true">description</th>
                                     <th  data-field="operate" data-events="actionEvents">Action</th>

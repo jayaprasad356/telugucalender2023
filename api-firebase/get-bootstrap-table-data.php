@@ -382,7 +382,8 @@ if (isset($_GET['table']) && $_GET['table'] == 'rashi_tab') {
         $operate .= ' <a class="text text-danger" href="delete-rashi-tab.php?id=' . $row['id'] . '"><i class="fa fa-trash"></i>Delete</a>';
         $tempRow['id'] = $row['id'];
         $tempRow['rashi'] = $row['rashi'];
-        $tempRow['date'] = $row['date'];
+        $tempRow['year'] = $row['year'];
+        $tempRow['month'] = $row['month'];
         $tempRow['title'] = $row['title'];
         $tempRow['description'] = $row['description'];
         $tempRow['operate'] = $operate;

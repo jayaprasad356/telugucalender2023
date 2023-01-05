@@ -16,10 +16,11 @@ if (isset($_GET['id'])) {
 if (isset($_POST['btnUpdate'])) {
     $error = array();
     $rashi_id= $db->escapeString($_POST['rashi_id']);
-    $date= $db->escapeString($_POST['date']);
+    $year= $db->escapeString($_POST['year']);
+    $month= $db->escapeString($_POST['month']);
     $title= $db->escapeString($_POST['title']);
     $description= $db->escapeString($_POST['description']);
-    $sql = "UPDATE rashi_tab SET rashi_id='$rashi_id',date='$date',title='$title',description='$description' WHERE id = '$ID'";
+    $sql = "UPDATE rashi_tab SET rashi_id='$rashi_id',year='$year',month='$month',title='$title',description='$description' WHERE id = '$ID'";
     $db->sql($sql);
     $categories_result = $db->getResult();
     if (!empty($categories_result)) {
@@ -76,9 +77,38 @@ $data = $row;
                                                 <?php } ?>
                                         </select>
                                     </div>
-                                    <div class="col-md-6">
-                                            <label for="exampleInputEmail1">Date</label> <i class="text-danger asterik">*</i><?php echo isset($error['date']) ? $error['date'] : ''; ?>
-                                            <input type="date" class="form-control" name="date" id = "date" value="<?php echo $data['date']?>"required>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class='col-md-6'>
+                                        <label for="">Year</label> <i class="text-danger asterik">*</i>
+                                        <select id='year' name="year" class='form-control' required>
+                                            <option value="">Select Year</option>
+                                                <?php
+                                                $sql = "SELECT * FROM `years`";
+                                                $db->sql($sql);
+                                                $result = $db->getResult();
+                                                foreach ($result as $value) {
+                                                ?>
+													 <option value='<?= $value['year'] ?>' <?= $value['year']==$res[0]['year'] ? 'selected="selected"' : '';?>><?= $value['year'] ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <div class='col-md-6'>
+                                        <label for="">Month</label> <i class="text-danger asterik">*</i>
+                                        <select id='month' name="month" class='form-control' required>
+                                            <option value="">Select Month</option>
+                                                <?php
+                                                $sql = "SELECT * FROM `months`";
+                                                $db->sql($sql);
+                                                $result = $db->getResult();
+                                                foreach ($result as $value) {
+                                                ?>
+													 <option value='<?= $value['month'] ?>' <?= $value['month']==$res[0]['month'] ? 'selected="selected"' : '';?>><?= $value['month'] ?></option>
+                                            <?php } ?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
