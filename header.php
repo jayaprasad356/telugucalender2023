@@ -212,6 +212,12 @@ $fn = new custom_functions;
 
                     </ul>
                 </li>
+                <li class="treeview">
+                    <a href="balli_sasthram.php">
+                        <i class="fa fa-calendar"></i>
+                        <span>Balli Sasthram</span>
+                    </a>
+                </li>
             </ul>
             </section>
             <!-- /.sidebar -->

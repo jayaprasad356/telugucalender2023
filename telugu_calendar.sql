@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2023 at 11:08 AM
+-- Generation Time: Jan 05, 2023 at 12:07 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -20,6 +20,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `telugu_calendar`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `balli_sasthram`
+--
+
+CREATE TABLE `balli_sasthram` (
+  `id` int(11) NOT NULL,
+  `title` text DEFAULT NULL,
+  `description` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `balli_sasthram`
+--
+
+INSERT INTO `balli_sasthram` (`id`, `title`, `description`) VALUES
+(1, 'బల్లి శాస్త్రం స్త్రీలకు', 'స్త్రీలు ఎక్కువగా వంటగదిలోనే ఉంటారు, బల్లులు కూడా అక్కడే ఎక్కువగా ఉంటాయి. దీని ఆధారంగా స్త్రీలపైనే బల్లి ఎక్కువగా పడే అవకాశం ఉంది. స్త్రీల శరీరం పై ఎక్కడ పడితే లాభం ఎక్కడ పడితే లాభం లాంటి విషయాలను తెలుసుకుందాం.');
 
 -- --------------------------------------------------------
 
@@ -249,6 +268,12 @@ INSERT INTO `years` (`id`, `year`) VALUES
 --
 
 --
+-- Indexes for table `balli_sasthram`
+--
+ALTER TABLE `balli_sasthram`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `festivals`
 --
 ALTER TABLE `festivals`
@@ -305,6 +330,12 @@ ALTER TABLE `years`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `balli_sasthram`
+--
+ALTER TABLE `balli_sasthram`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `festivals`
