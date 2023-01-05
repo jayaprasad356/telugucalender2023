@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 02, 2023 at 12:19 PM
+-- Generation Time: Jan 05, 2023 at 11:08 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -40,6 +40,35 @@ CREATE TABLE `festivals` (
 INSERT INTO `festivals` (`id`, `date`, `festival`) VALUES
 (1, '2023-01-17', 'Pongal'),
 (2, '2022-11-24', 'Diwali');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `months`
+--
+
+CREATE TABLE `months` (
+  `id` int(11) NOT NULL,
+  `month` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `months`
+--
+
+INSERT INTO `months` (`id`, `month`) VALUES
+(1, 'January'),
+(2, 'February'),
+(3, 'March'),
+(4, 'April'),
+(5, 'May'),
+(6, 'June'),
+(7, 'July'),
+(8, 'August'),
+(9, 'September'),
+(10, 'October'),
+(11, 'November'),
+(12, 'December');
 
 -- --------------------------------------------------------
 
@@ -180,7 +209,8 @@ INSERT INTO `rashi` (`id`, `rashi`) VALUES
 CREATE TABLE `rashi_tab` (
   `id` int(11) NOT NULL,
   `rashi_id` int(11) DEFAULT NULL,
-  `date` text DEFAULT NULL,
+  `year` varchar(255) DEFAULT NULL,
+  `month` varchar(255) DEFAULT NULL,
   `title` text DEFAULT NULL,
   `description` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -189,8 +219,30 @@ CREATE TABLE `rashi_tab` (
 -- Dumping data for table `rashi_tab`
 --
 
-INSERT INTO `rashi_tab` (`id`, `rashi_id`, `date`, `title`, `description`) VALUES
-(1, 1, '2023-01-12', 'This is My rashi', 'మిమ్మల్ని ప్రశాంతంగా, కూల్ గా ఉంచగల పనులలో నిమగ్నమవండి. చిరకాలంగా వసూలవని బాకీలు వసూలు కావడం వలన ఆర్థిక పరిస్థితి మెరుగుపడుతుంది. మిత్రులతో గడిపే సాయంత్రాలు, లేదా షాపింగ్ ఎక్కువ సంతోషదాయకమే కాక ఉద్వేగభరిత ఉత్సాహాన్ని ఇస్తాయి. ప్రతిరోజూ ప్రేమలో పడడం అనే స్వభావాన్ని మార్చుకొండి. మీరూపురేఖలను, వ్యక్తిత్వాన్ని, మెరుగు పరుచుకోవడానికి, చేసిన పరిశ్రమ మీకు సంతృప్తిని కలిగిస్తుంది. వైవాహిక జీవితంలో క్లిష్టతరమైన దశ తర్వాత ఈ రోజు మీకు కాస్త ఉపశమనాన్ని కలిగిస్తుంది. మీరు ఈరోజు అన్నిభాదలను మర్చిపోతారు,సృజనాత్మకంగా ఆలోచించటానికి ప్రయత్నిస్తారు.');
+INSERT INTO `rashi_tab` (`id`, `rashi_id`, `year`, `month`, `title`, `description`) VALUES
+(1, 1, '2023', 'March', 'This is My rashi', 'మిమ్మల్ని ప్రశాంతంగా, కూల్ గా ఉంచగల పనులలో నిమగ్నమవండి. చిరకాలంగా వసూలవని బాకీలు వసూలు కావడం వలన ఆర్థిక పరిస్థితి మెరుగుపడుతుంది. మిత్రులతో గడిపే సాయంత్రాలు, లేదా షాపింగ్ ఎక్కువ సంతోషదాయకమే కాక ఉద్వేగభరిత ఉత్సాహాన్ని ఇస్తాయి. ప్రతిరోజూ ప్రేమలో పడడం అనే స్వభావాన్ని మార్చుకొండి. మీరూపురేఖలను, వ్యక్తిత్వాన్ని, మెరుగు పరుచుకోవడానికి, చేసిన పరిశ్రమ మీకు సంతృప్తిని కలిగిస్తుంది. వైవాహిక జీవితంలో క్లిష్టతరమైన దశ తర్వాత ఈ రోజు మీకు కాస్త ఉపశమనాన్ని కలిగిస్తుంది. మీరు ఈరోజు అన్నిభాదలను మర్చిపోతారు,సృజనాత్మకంగా ఆలోచించటానికి ప్రయత్నిస్తారు.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `years`
+--
+
+CREATE TABLE `years` (
+  `id` int(11) NOT NULL,
+  `year` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `years`
+--
+
+INSERT INTO `years` (`id`, `year`) VALUES
+(1, '2021'),
+(2, '2022'),
+(3, '2023'),
+(4, '2024'),
+(5, '2025');
 
 --
 -- Indexes for dumped tables
@@ -200,6 +252,12 @@ INSERT INTO `rashi_tab` (`id`, `rashi_id`, `date`, `title`, `description`) VALUE
 -- Indexes for table `festivals`
 --
 ALTER TABLE `festivals`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `months`
+--
+ALTER TABLE `months`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -239,6 +297,12 @@ ALTER TABLE `rashi_tab`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `years`
+--
+ALTER TABLE `years`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -247,6 +311,12 @@ ALTER TABLE `rashi_tab`
 --
 ALTER TABLE `festivals`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `months`
+--
+ALTER TABLE `months`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `muhurtham`
@@ -283,6 +353,12 @@ ALTER TABLE `rashi`
 --
 ALTER TABLE `rashi_tab`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `years`
+--
+ALTER TABLE `years`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
