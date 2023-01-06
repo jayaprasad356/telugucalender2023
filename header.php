@@ -218,6 +218,18 @@ $fn = new custom_functions;
                         <span>Balli Sasthram</span>
                     </a>
                 </li>
+                <li class="treeview">
+                    <a href="namakaram.php">
+                        <i class="fa fa-calendar"></i>
+                        <span>Namakaram</span>
+                    </a>
+                </li>
+                <li class="treeview">
+                    <a href="sissu_janma.php">
+                        <i class="fa fa-calendar"></i>
+                        <span>Sissu Janma</span>
+                    </a>
+                </li>
             </ul>
             </section>
             <!-- /.sidebar -->

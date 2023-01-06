@@ -124,5 +124,49 @@ foreach ($res as $row) {
 }
 $response['rashi_tab_list'] = $rows;
 unset($temp);
+
+$sql = "SELECT * FROM `balli_sasthram`";
+$db->sql($sql);
+$res = $db->getResult();
+$rows = array();
+$temp = array();
+foreach ($res as $row) {
+    $temp['id'] = $row['id'];
+    $temp['title'] = $row['title'];
+    $temp['description'] = $row['description'];
+    $rows[] = $temp;
+}
+$response['balli_sastham_list'] = $rows;
+unset($temp);
+
+
+$sql = "SELECT * FROM `namakaram`";
+$db->sql($sql);
+$res = $db->getResult();
+$rows = array();
+$temp = array();
+foreach ($res as $row) {
+    $temp['id'] = $row['id'];
+    $temp['title'] = $row['title'];
+    $temp['description'] = $row['description'];
+    $rows[] = $temp;
+}
+$response['namakaram_list'] = $rows;
+unset($temp);
+
+
+$sql = "SELECT * FROM `sissu_janma`";
+$db->sql($sql);
+$res = $db->getResult();
+$rows = array();
+$temp = array();
+foreach ($res as $row) {
+    $temp['id'] = $row['id'];
+    $temp['title'] = $row['title'];
+    $temp['description'] = $row['description'];
+    $rows[] = $temp;
+}
+$response['sissu_janma_list'] = $rows;
+unset($temp);
 print_r(json_encode($response));
 ?>

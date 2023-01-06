@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2023 at 12:07 PM
+-- Generation Time: Jan 06, 2023 at 07:27 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -133,6 +133,25 @@ INSERT INTO `muhurtham_tab` (`id`, `muhurtham_id`, `title`, `description`) VALUE
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `namakaram`
+--
+
+CREATE TABLE `namakaram` (
+  `id` int(11) NOT NULL,
+  `title` text DEFAULT NULL,
+  `description` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `namakaram`
+--
+
+INSERT INTO `namakaram` (`id`, `title`, `description`) VALUES
+(1, 'కాకి శాస్త్రం', 'కాకి తన్నితే అశుభం అంటారు. కాకి ఇంటి ముందు వచ్చి అరుస్తే చుట్టాలు వస్తారని అంటారు. ఇలా కాకి మన దగ్గరికి వచ్చి చేసే పనుల వల్ల శుభాలు, అశుభాలు జరుగుతాయని శాస్త్రం చెబుతుంది.\r\nఇలాంటి కాకి శాస్త్రాన్ని గతంలో మన పూర్వీకులు, పెద్దలు చదివేవారు. ప్రస్తుతం ఈ కాకి శాస్త్రాన్ని ఎవరూ పట్టించుకోవడం లేదు. అయితే ముందుజాగ్రత్తగా కాకి శాస్త్రం గురించి తెలుసుకోవడం ఎంతకైనా మంచిదే.');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `panchangam`
 --
 
@@ -244,6 +263,25 @@ INSERT INTO `rashi_tab` (`id`, `rashi_id`, `year`, `month`, `title`, `descriptio
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `sissu_janma`
+--
+
+CREATE TABLE `sissu_janma` (
+  `id` int(11) NOT NULL,
+  `title` text DEFAULT NULL,
+  `description` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `sissu_janma`
+--
+
+INSERT INTO `sissu_janma` (`id`, `title`, `description`) VALUES
+(1, 'లక్ష్మీ అనుగ్రహం ఉంటుంది ', 'ఎవరి ఇంట్లోనైనా నీటితో ఉన్న కుండపో వాలితే ఆ ఇంటికి త్వరలోనే లక్ష్మీదేవి రాబోతోందని, అంటే సంపద మెండుగా లభించనుందని అర్ధం.');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `years`
 --
 
@@ -298,6 +336,12 @@ ALTER TABLE `muhurtham_tab`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `namakaram`
+--
+ALTER TABLE `namakaram`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `panchangam`
 --
 ALTER TABLE `panchangam`
@@ -319,6 +363,12 @@ ALTER TABLE `rashi`
 -- Indexes for table `rashi_tab`
 --
 ALTER TABLE `rashi_tab`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sissu_janma`
+--
+ALTER TABLE `sissu_janma`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -362,6 +412,12 @@ ALTER TABLE `muhurtham_tab`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `namakaram`
+--
+ALTER TABLE `namakaram`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `panchangam`
 --
 ALTER TABLE `panchangam`
@@ -383,6 +439,12 @@ ALTER TABLE `rashi`
 -- AUTO_INCREMENT for table `rashi_tab`
 --
 ALTER TABLE `rashi_tab`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `sissu_janma`
+--
+ALTER TABLE `sissu_janma`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --

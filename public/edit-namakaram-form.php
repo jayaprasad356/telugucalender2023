@@ -18,20 +18,20 @@ if (isset($_POST['btnUpdate'])) {
     $title = $db->escapeString($fn->xss_clean($_POST['title']));
     $description = $db->escapeString($fn->xss_clean($_POST['description']));
 
-    $sql = "UPDATE balli_sasthram SET title='$title',description='$description' WHERE id = '$ID'";
+    $sql = "UPDATE namakaram SET title='$title',description='$description' WHERE id = '$ID'";
     $db->sql($sql);
     $result = $db->getResult();
     if (!empty($result)) {
         $error['add_menu'] = " <span class='label label-danger'>Failed</span>";
     } else {
-        $error['add_menu'] = " <span class='label label-success'>Balli Sasthram Updated Successfully</span>";
+        $error['add_menu'] = " <span class='label label-success'>Namakaram Updated Successfully</span>";
     }
     
 }
 
 $data = array();
 
-$sql_query = "SELECT * FROM `balli_sasthram` WHERE id = '$ID'";
+$sql_query = "SELECT * FROM `namakaram` WHERE id = '$ID'";
 $db->sql($sql_query);
 $res = $db->getResult();
 foreach ($res as $row)
@@ -39,7 +39,7 @@ $data = $row;
 
 ?>
 <section class="content-header">
-    <h1>Edit Balli Sasthram<small><a href='balli_sasthram.php'><i class='fa fa-angle-double-left'></i>&nbsp;&nbsp;&nbsp;Back to Balli Sasthram</a></small></h1>
+    <h1>Edit Namakaram<small><a href='namakaram.php'><i class='fa fa-angle-double-left'></i>&nbsp;&nbsp;&nbsp;Back to Namakaram</a></small></h1>
     <?php echo isset($error['add_menu']) ? $error['add_menu'] : ''; ?>
     <ol class="breadcrumb">
         <li><a href="home.php"><i class="fa fa-home"></i> Home</a></li>
