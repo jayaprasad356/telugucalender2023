@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2023 at 07:27 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.29
+-- Generation Time: Jan 13, 2023 at 07:08 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `telugu_calendar`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `audios`
+--
+
+CREATE TABLE `audios` (
+  `id` int(11) NOT NULL,
+  `title` text DEFAULT NULL,
+  `image` text DEFAULT NULL,
+  `lyrics` text DEFAULT NULL,
+  `audio` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `audios`
+--
+
+INSERT INTO `audios` (`id`, `title`, `image`, `lyrics`, `audio`) VALUES
+(1, 'Hara Hara Mahadev', 'upload/audio/1764-2023-01-13.jpg', '	Abhilipsa Panda, Jeetu Sharma,', 'upload/mp3/6469-2023-01-13.mp3');
 
 -- --------------------------------------------------------
 
@@ -306,6 +327,12 @@ INSERT INTO `years` (`id`, `year`) VALUES
 --
 
 --
+-- Indexes for table `audios`
+--
+ALTER TABLE `audios`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `balli_sasthram`
 --
 ALTER TABLE `balli_sasthram`
@@ -380,6 +407,12 @@ ALTER TABLE `years`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `audios`
+--
+ALTER TABLE `audios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `balli_sasthram`

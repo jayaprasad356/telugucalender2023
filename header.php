@@ -230,6 +230,12 @@ $fn = new custom_functions;
                         <span>Sissu Janma</span>
                     </a>
                 </li>
+                <li class="treeview">
+                    <a href="audio.php">
+                        <i class="fa fa-headphones"></i>
+                        <span>Audio</span>
+                    </a>
+                </li>
             </ul>
             </section>
             <!-- /.sidebar -->

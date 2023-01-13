@@ -168,5 +168,21 @@ foreach ($res as $row) {
 }
 $response['sissu_janma_list'] = $rows;
 unset($temp);
+
+$sql = "SELECT * FROM `audios`";
+$db->sql($sql);
+$res = $db->getResult();
+$rows = array();
+$temp = array();
+foreach ($res as $row) {
+    $temp['id'] = $row['id'];
+    $temp['title'] = $row['title'];
+    $temp['image'] = DOMAIN_URL . $row['image'];
+    $temp['lyrics'] = $row['lyrics'];
+    $temp['audio'] = DOMAIN_URL . $row['audio'];
+    $rows[] = $temp;
+}
+$response['audio_list'] = $rows;
+unset($temp);
 print_r(json_encode($response));
 ?>

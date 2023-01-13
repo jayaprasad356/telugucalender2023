@@ -52,6 +52,10 @@ if (isset($_GET['table']) && $_GET['table'] == 'panchangam') {
     $where = '';
     $sort = 'id';
     $order = 'DESC';
+    if (isset($_GET['year']) && !empty($_GET['year'] != '')){
+        $year = $db->escapeString($fn->xss_clean($_GET['year']));
+        $where .= "AND YEAR(date) = '$year' ";  
+    }
     if (isset($_GET['offset']))
         $offset = $db->escapeString($_GET['offset']);
     if (isset($_GET['limit']))
@@ -63,7 +67,7 @@ if (isset($_GET['table']) && $_GET['table'] == 'panchangam') {
 
     if (isset($_GET['search']) && !empty($_GET['search'])) {
         $search = $db->escapeString($_GET['search']);
-        $where .= "WHERE id like '%" . $search . "%' OR date like '%" . $search . "%'";
+        $where .= "AND id like '%" . $search . "%' OR date like '%" . $search . "%' ";
     }
     if (isset($_GET['sort'])){
         $sort = $db->escapeString($_GET['sort']);
@@ -77,7 +81,7 @@ if (isset($_GET['table']) && $_GET['table'] == 'panchangam') {
     foreach ($res as $row)
         $total = $row['total'];
    
-    $sql = "SELECT * FROM panchangam " . $where . " ORDER BY " . $sort . " " . $order . " LIMIT " . $offset . ", " . $limit;
+    $sql = "SELECT * FROM panchangam WHERE id IS NOT NULL " . $where . " ORDER BY " . $sort . " " . $order . " LIMIT " . $offset . ", " . $limit;
     $db->sql($sql);
     $res = $db->getResult();
 
@@ -113,6 +117,10 @@ if (isset($_GET['table']) && $_GET['table'] == 'festivals') {
     $where = '';
     $sort = 'id';
     $order = 'DESC';
+    if (isset($_GET['year']) && !empty($_GET['year'] != '')){
+        $year = $db->escapeString($fn->xss_clean($_GET['year']));
+        $where .= "AND YEAR(date) = '$year' ";  
+    }
     if (isset($_GET['offset']))
         $offset = $db->escapeString($_GET['offset']);
     if (isset($_GET['limit']))
@@ -124,7 +132,7 @@ if (isset($_GET['table']) && $_GET['table'] == 'festivals') {
 
     if (isset($_GET['search']) && !empty($_GET['search'])) {
         $search = $db->escapeString($_GET['search']);
-        $where .= "WHERE id like '%" . $search . "%' OR date like '%" . $search . "%' OR festival like '%" . $search . "%'";
+        $where .= "AND id like '%" . $search . "%' OR date like '%" . $search . "%' OR festival like '%" . $search . "%' ";
     }
     if (isset($_GET['sort'])){
         $sort = $db->escapeString($_GET['sort']);
@@ -138,7 +146,7 @@ if (isset($_GET['table']) && $_GET['table'] == 'festivals') {
     foreach ($res as $row)
         $total = $row['total'];
    
-    $sql = "SELECT * FROM festivals " . $where . " ORDER BY " . $sort . " " . $order . " LIMIT " . $offset . ", " . $limit;
+    $sql = "SELECT * FROM festivals WHERE id IS NOT NULL " . $where . " ORDER BY " . $sort . " " . $order . " LIMIT " . $offset . ", " . $limit;
     $db->sql($sql);
     $res = $db->getResult();
 
@@ -566,5 +574,71 @@ if (isset($_GET['table']) && $_GET['table'] == 'sissu_janma') {
     print_r(json_encode($bulkData));
 
 }
+
+//audio table goes here
+if (isset($_GET['table']) && $_GET['table'] == 'audios') {
+
+    $offset = 0;
+    $limit = 10;
+    $where = '';
+    $sort = 'id';
+    $order = 'DESC';
+    if (isset($_GET['offset']))
+        $offset = $db->escapeString($_GET['offset']);
+    if (isset($_GET['limit']))
+        $limit = $db->escapeString($_GET['limit']);
+    if (isset($_GET['sort']))
+        $sort = $db->escapeString($_GET['sort']);
+    if (isset($_GET['order']))
+        $order = $db->escapeString($_GET['order']);
+
+    if (isset($_GET['search']) && !empty($_GET['search'])) {
+        $search = $db->escapeString($_GET['search']);
+        $where .= "WHERE id like '%" . $search . "%' OR title like '%" . $search . "%' ";
+    }
+    if (isset($_GET['sort'])){
+        $sort = $db->escapeString($_GET['sort']);
+    }
+    if (isset($_GET['order'])){
+        $order = $db->escapeString($_GET['order']);
+    }
+    $sql = "SELECT COUNT(`id`) as total FROM `audios` ";
+    $db->sql($sql);
+    $res = $db->getResult();
+    foreach ($res as $row)
+        $total = $row['total'];
+   
+    $sql = "SELECT * FROM audios " . $where . " ORDER BY " . $sort . " " . $order . " LIMIT " . $offset . ", " . $limit;
+    $db->sql($sql);
+    $res = $db->getResult();
+
+    $bulkData = array();
+    $bulkData['total'] = $total;
+    
+    $rows = array();
+    $tempRow = array();
+
+    foreach ($res as $row) {
+
+        
+        $operate = ' <a href="edit-audio.php?id=' . $row['id'] . '"><i class="fa fa-edit"></i>Edit</a>';  
+        $operate .= ' <a class="text text-danger" href="delete-audio.php?id=' . $row['id'] . '"><i class="fa fa-trash"></i>Delete</a>';
+        $tempRow['id'] = $row['id'];
+        $tempRow['title'] = $row['title'];
+        if(!empty($row['image'])){
+            $tempRow['image'] = "<a data-lightbox='category' href='" . $row['image'] . "' data-caption='" . $row['image'] . "'><img src='" . $row['image'] . "' title='" . $row['image'] . "' height='50' /></a>";
+
+        }else{
+            $tempRow['image'] = 'No Image';
+
+        }
+        $tempRow['lyrics'] = $row['lyrics'];
+        $tempRow['operate'] = $operate;
+        $rows[] = $tempRow;
+    }
+    $bulkData['rows'] = $rows;
+    print_r(json_encode($bulkData));
+}
+
 
 $db->disconnect();
