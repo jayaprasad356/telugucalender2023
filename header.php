@@ -236,6 +236,12 @@ $fn = new custom_functions;
                         <span>Audio</span>
                     </a>
                 </li>
+                <li class="treeview">
+                    <a href="temples.php">
+                        <i class="fa fa-building"></i>
+                        <span>Temples</span>
+                    </a>
+                </li>
             </ul>
             </section>
             <!-- /.sidebar -->

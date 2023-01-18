@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 18, 2023 at 06:06 AM
+-- Generation Time: Jan 18, 2023 at 09:24 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -310,15 +310,16 @@ CREATE TABLE `temples` (
   `id` int(11) NOT NULL,
   `name` text DEFAULT NULL,
   `description` text DEFAULT NULL,
-  `location` text DEFAULT NULL
+  `location` text DEFAULT NULL,
+  `image` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `temples`
 --
 
-INSERT INTO `temples` (`id`, `name`, `description`, `location`) VALUES
-(1, 'Yaganti Temple', 'Sri Yaganti Uma Maheswara Temple or Yaganti is a temple of Shiva in Nandyal district in the India state of Andhra Pradesh. It was built according to Vaishnavaite traditions.', 'Yaganti, Andhra Pradesh ');
+INSERT INTO `temples` (`id`, `name`, `description`, `location`, `image`) VALUES
+(1, 'Yaganti Temple', 'Sri Yaganti Uma Maheswara Temple or Yaganti is a temple of Shiva in Nandyal district in the India state of Andhra Pradesh. It was built according to Vaishnavaite traditions.', 'Yaganti, Andhra Pradesh', 'upload/temples/6112-2023-01-18.jpg');
 
 -- --------------------------------------------------------
 
