@@ -24,6 +24,7 @@ if($num>=1){
         $temp['name'] = $row['name'];
         $temp['description'] = $row['description'];
         $temp['location'] = $row['location'];
+        $temp['image'] = DOMAIN_URL . $row['image'];
         $rows[] = $temp;
     }
     $response['success'] = true;
