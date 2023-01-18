@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 13, 2023 at 07:08 AM
+-- Generation Time: Jan 18, 2023 at 06:06 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -303,6 +303,26 @@ INSERT INTO `sissu_janma` (`id`, `title`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `temples`
+--
+
+CREATE TABLE `temples` (
+  `id` int(11) NOT NULL,
+  `name` text DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `location` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `temples`
+--
+
+INSERT INTO `temples` (`id`, `name`, `description`, `location`) VALUES
+(1, 'Yaganti Temple', 'Sri Yaganti Uma Maheswara Temple or Yaganti is a temple of Shiva in Nandyal district in the India state of Andhra Pradesh. It was built according to Vaishnavaite traditions.', 'Yaganti, Andhra Pradesh ');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `years`
 --
 
@@ -399,6 +419,12 @@ ALTER TABLE `sissu_janma`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `temples`
+--
+ALTER TABLE `temples`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `years`
 --
 ALTER TABLE `years`
@@ -478,6 +504,12 @@ ALTER TABLE `rashi_tab`
 -- AUTO_INCREMENT for table `sissu_janma`
 --
 ALTER TABLE `sissu_janma`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `temples`
+--
+ALTER TABLE `temples`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
