@@ -18,7 +18,8 @@ if (isset($_POST['btnUpdate'])) {
     $muhurtham_id= $db->escapeString($_POST['muhurtham_id']);
     $title= $db->escapeString($_POST['title']);
     $description= $db->escapeString($_POST['description']);
-    $sql = "UPDATE muhurtham_tab SET muhurtham_id='$muhurtham_id',title='$title',description='$description' WHERE id = '$ID'";
+    $date = $db->escapeString($_POST['date']);
+    $sql = "UPDATE muhurtham_tab SET muhurtham_id='$muhurtham_id',title='$title',description='$description',date='$date' WHERE id = '$ID'";
     $db->sql($sql);
     $categories_result = $db->getResult();
     if (!empty($categories_result)) {
@@ -74,6 +75,15 @@ $data = $row;
                                                     
                                                 <?php } ?>
                                         </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="form-group">
+                                     <div class="col-md-6">
+                                            <label for="exampleInputEmail1">Date</label> <i class="text-danger asterik">*</i><?php echo isset($error['date']) ? $error['date'] : ''; ?>
+                                            <input type="date" class="form-control" name="date" value="<?php echo $data['date']?>" required>
                                     </div>
                                 </div>
                             </div>

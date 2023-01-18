@@ -10,10 +10,11 @@ if (isset($_POST['btnAdd'])) {
         $muhurtham_id= $db->escapeString($_POST['muhurtham_id']);
         $title= $db->escapeString($_POST['title']);
         $description= $db->escapeString($_POST['description']);
+        $date = $db->escapeString($_POST['date']);
 
-       if (!empty($muhurtham_id) && !empty($title) && !empty($description)) {
+       if (!empty($muhurtham_id) && !empty($title) && !empty($description) && !empty($date)) {
          
-            $sql_query = "INSERT INTO muhurtham_tab (muhurtham_id,title,description)VALUES('$muhurtham_id','$title','$description')";
+            $sql_query = "INSERT INTO muhurtham_tab (muhurtham_id,title,description,date)VALUES('$muhurtham_id','$title','$description','$date')";
             $db->sql($sql_query);
             $result = $db->getResult();
             if (!empty($result)) {
@@ -70,8 +71,18 @@ if (isset($_POST['btnAdd'])) {
                                         </select>
                                     </div>
                                 </div>
+
                             </div>
-                             <br>
+                            <br>
+                            <div class="row">
+                                <div class="form-group">
+                                     <div class="col-md-6">
+                                            <label for="exampleInputEmail1">Date</label> <i class="text-danger asterik">*</i><?php echo isset($error['date']) ? $error['date'] : ''; ?>
+                                            <input type="date" class="form-control" name="date" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
                            <div class="row">
                                 <div class="form-group">
                                      <div class="col-md-12">
