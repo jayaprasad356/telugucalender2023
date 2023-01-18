@@ -89,6 +89,7 @@ foreach ($res as $row) {
     $temp['muhurtham_id'] = $row['muhurtham_id'];
     $temp['title'] = $row['title'];
     $temp['description'] = $row['description'];
+    $temp['date'] = $row['date'];
     $rows[] = $temp;
 }
 $response['muhurtham_tab_list'] = $rows;
@@ -109,21 +110,21 @@ $response['rashi_list'] = $rows;
 unset($temp);
 
 
-$sql = "SELECT * FROM `rashi_tab`";
-$db->sql($sql);
-$res = $db->getResult();
-$rows = array();
-$temp = array();
-foreach ($res as $row) {
-    $temp['id'] = $row['id'];
-    $temp['rashi_id'] = $row['rashi_id'];
-    $temp['date'] = $row['date'];
-    $temp['title'] = $row['title'];
-    $temp['description'] = $row['description'];
-    $rows[] = $temp;
-}
-$response['rashi_tab_list'] = $rows;
-unset($temp);
+// $sql = "SELECT * FROM `rashi_tab`";
+// $db->sql($sql);
+// $res = $db->getResult();
+// $rows = array();
+// $temp = array();
+// foreach ($res as $row) {
+//     $temp['id'] = $row['id'];
+//     $temp['rashi_id'] = $row['rashi_id'];
+//     $temp['date'] = $row['date'];
+//     $temp['title'] = $row['title'];
+//     $temp['description'] = $row['description'];
+//     $rows[] = $temp;
+// }
+// $response['rashi_tab_list'] = $rows;
+// unset($temp);
 
 $sql = "SELECT * FROM `balli_sasthram`";
 $db->sql($sql);
