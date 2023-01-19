@@ -22,7 +22,7 @@
                             <thead>
                                 <tr>
                                     
-                                    <th  data-field="id" data-sortable="true">ID</th>
+                                    <th  data-field="id">S.No</th>
                                     <th data-field="muhurtham" data-sortable="true">Muhurtham</th>
                                     <th  data-field="operate" data-events="actionEvents">Action</th>
                                 </tr>

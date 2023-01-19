@@ -22,7 +22,7 @@
                             <thead>
                                 <tr>
                                     
-                                    <th  data-field="id" data-sortable="true">ID</th>
+                                    <th  data-field="id">S.No</th>
                                     <th data-field="title" data-sortable="true">Title</th>
                                     <th  data-field="image">Image</th>
                                     <!-- <th data-field="lyrics" data-sortable="true">Audio Lyrics</th> -->

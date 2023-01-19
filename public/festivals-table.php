@@ -38,7 +38,7 @@
                             <thead>
                                 <tr>
                                     
-                                    <th  data-field="id" data-sortable="true">ID</th>
+                                    <th  data-field="id">S.No</th>
                                     <th data-field="date" data-sortable="true">Date</th>
                                     <th  data-field="festival" data-sortable="true">Festival</th>
                                     <th  data-field="operate" data-events="actionEvents">Action</th>

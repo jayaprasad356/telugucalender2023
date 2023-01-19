@@ -24,7 +24,7 @@
                             <thead>
                                 <tr>
                                     
-                                    <th  data-field="id" data-sortable="true">ID</th>
+                                    <th  data-field="id">S.No</th>
                                     <th data-field="name" data-sortable="true">Name</th>
                                     <th  data-field="description" data-sortable="true">Description</th>
                                     <th  data-field="location" data-sortable="true">Location</th>

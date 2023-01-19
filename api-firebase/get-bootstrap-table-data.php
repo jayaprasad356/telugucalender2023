@@ -91,12 +91,13 @@ if (isset($_GET['table']) && $_GET['table'] == 'panchangam') {
     $rows = array();
     $tempRow = array();
 
+    $row_number = 1;
     foreach ($res as $row) {
 
         
         $operate = ' <a href="edit-panchangam.php?id=' . $row['id'] . '"><i class="fa fa-edit"></i>Edit</a>';
         $operate .= ' <a class="text text-danger" href="delete-panchangam.php?id=' . $row['id'] . '"><i class="fa fa-trash"></i>Delete</a>';
-        $tempRow['id'] = $row['id'];
+        $tempRow['id'] = $row_number++;
         $tempRow['date'] = $row['date'];
         $tempRow['sunrise'] = date('h:i a', strtotime($row['sunrise']));
         $tempRow['sunset'] = date('h:i a', strtotime($row['sunset']));
@@ -156,12 +157,13 @@ if (isset($_GET['table']) && $_GET['table'] == 'festivals') {
     $rows = array();
     $tempRow = array();
 
+    $row_number=1;
     foreach ($res as $row) {
 
         
         $operate = ' <a href="edit-festival.php?id=' . $row['id'] . '"><i class="fa fa-edit"></i>Edit</a>';
         $operate .= ' <a class="text text-danger" href="delete-festival.php?id=' . $row['id'] . '"><i class="fa fa-trash"></i>Delete</a>';
-        $tempRow['id'] = $row['id'];
+        $tempRow['id'] =  $row_number++;
         $tempRow['date'] = $row['date'];
         $tempRow['festival'] = $row['festival'];
         $tempRow['operate'] = $operate;
@@ -213,10 +215,12 @@ if (isset($_GET['table']) && $_GET['table'] == 'muhurtham') {
     $rows = array();
     $tempRow = array();
 
+    $row_number=1;
+
     foreach ($res as $row) {
         $operate = '<a href="edit-muhurtham.php?id=' . $row['id'] . '" class="label label-primary" title="Edit">Edit</a>';
         $operate .= ' <a class="text text-danger" href="delete-muhurtham.php?id=' . $row['id'] . '"><i class="fa fa-trash"></i>Delete</a>';
-        $tempRow['id'] = $row['id'];
+        $tempRow['id'] =  $row_number++;
         $tempRow['muhurtham'] = $row['muhurtham'];
         $tempRow['operate'] = $operate;
         $rows[] = $tempRow;
@@ -270,10 +274,12 @@ if (isset($_GET['table']) && $_GET['table'] == 'muhurtham_tab') {
     
     $rows = array();
     $tempRow = array();
+
+    $row_number=1;
     foreach ($res as $row) {
         $operate = '<a href="edit-muhurtham-tab.php?id=' . $row['id'] . '" class="label label-primary" title="Edit">Edit</a>';
         $operate .= ' <a class="text text-danger" href="delete-muhurtham-tab.php?id=' . $row['id'] . '"><i class="fa fa-trash"></i>Delete</a>';
-        $tempRow['id'] = $row['id'];
+        $tempRow['id'] =  $row_number++;
         $tempRow['muhurtham'] = $row['muhurtham'];
         $tempRow['title'] = $row['title'];
         $tempRow['description'] = $row['description'];
@@ -328,10 +334,11 @@ if (isset($_GET['table']) && $_GET['table'] == 'rashi') {
     $rows = array();
     $tempRow = array();
 
+    $row_number=1;
     foreach ($res as $row) {
         $operate = '<a href="edit-rashi.php?id=' . $row['id'] . '" class="label label-primary" title="Edit">Edit</a>';
         $operate .= ' <a class="text text-danger" href="delete-rashi.php?id=' . $row['id'] . '"><i class="fa fa-trash"></i>Delete</a>';
-        $tempRow['id'] = $row['id'];
+        $tempRow['id'] =  $row_number++;
         $tempRow['rashi'] = $row['rashi'];
         $tempRow['operate'] = $operate;
         $rows[] = $tempRow;
@@ -385,10 +392,11 @@ if (isset($_GET['table']) && $_GET['table'] == 'rashi_tab') {
     
     $rows = array();
     $tempRow = array();
+    $row_number=1;
     foreach ($res as $row) {
         $operate = '<a href="edit-rashi-tab.php?id=' . $row['id'] . '" class="label label-primary" title="Edit">Edit</a>';
         $operate .= ' <a class="text text-danger" href="delete-rashi-tab.php?id=' . $row['id'] . '"><i class="fa fa-trash"></i>Delete</a>';
-        $tempRow['id'] = $row['id'];
+        $tempRow['id'] =  $row_number++;
         $tempRow['rashi'] = $row['rashi'];
         $tempRow['year'] = $row['year'];
         $tempRow['month'] = $row['month'];
@@ -444,16 +452,15 @@ if (isset($_GET['table']) && $_GET['table'] == 'balli_sasthram') {
     
     $rows = array();
     $tempRow = array();
-
+    $row_number = 1;
     foreach ($res as $row) {
         $operate = '<a href="edit-balli_sasthram.php?id=' . $row['id'] . '" class="label label-primary" title="Edit">Edit</a>';
         $operate .= ' <a class="text text-danger" href="delete-balli_sasthram.php?id=' . $row['id'] . '"><i class="fa fa-trash"></i>Delete</a>';
-        $tempRow['id'] = $row['id'];
+        $tempRow['id'] = $row_number++;
         $tempRow['title'] = $row['title'];
         $tempRow['description'] = $row['description'];
         $tempRow['operate'] = $operate;
         $rows[] = $tempRow;
-
     }
     $bulkData['rows'] = $rows;
     print_r(json_encode($bulkData));
@@ -503,10 +510,12 @@ if (isset($_GET['table']) && $_GET['table'] == 'namakaram') {
     $rows = array();
     $tempRow = array();
 
+    $row_number=1;
+
     foreach ($res as $row) {
         $operate = '<a href="edit-namakaram.php?id=' . $row['id'] . '" class="label label-primary" title="Edit">Edit</a>';
         $operate .= ' <a class="text text-danger" href="delete-namakaram.php?id=' . $row['id'] . '"><i class="fa fa-trash"></i>Delete</a>';
-        $tempRow['id'] = $row['id'];
+        $tempRow['id'] =  $row_number++;
         $tempRow['title'] = $row['title'];
         $tempRow['description'] = $row['description'];
         $tempRow['operate'] = $operate;
@@ -560,10 +569,12 @@ if (isset($_GET['table']) && $_GET['table'] == 'sissu_janma') {
     $rows = array();
     $tempRow = array();
 
+    $row_number=1;
+
     foreach ($res as $row) {
         $operate = '<a href="edit-sissu_janma.php?id=' . $row['id'] . '" class="label label-primary" title="Edit">Edit</a>';
         $operate .= ' <a class="text text-danger" href="delete-sissu_janma.php?id=' . $row['id'] . '"><i class="fa fa-trash"></i>Delete</a>';
-        $tempRow['id'] = $row['id'];
+        $tempRow['id'] =  $row_number++;
         $tempRow['title'] = $row['title'];
         $tempRow['description'] = $row['description'];
         $tempRow['operate'] = $operate;
@@ -618,12 +629,14 @@ if (isset($_GET['table']) && $_GET['table'] == 'audios') {
     $rows = array();
     $tempRow = array();
 
+    $row_number=1;
+
     foreach ($res as $row) {
 
         
         $operate = ' <a href="edit-audio.php?id=' . $row['id'] . '"><i class="fa fa-edit"></i>Edit</a>';  
         $operate .= ' <a class="text text-danger" href="delete-audio.php?id=' . $row['id'] . '"><i class="fa fa-trash"></i>Delete</a>';
-        $tempRow['id'] = $row['id'];
+        $tempRow['id'] =  $row_number++;
         $tempRow['title'] = $row['title'];
         if(!empty($row['image'])){
             $tempRow['image'] = "<a data-lightbox='category' href='" . $row['image'] . "' data-caption='" . $row['image'] . "'><img src='" . $row['image'] . "' title='" . $row['image'] . "' height='50' /></a>";
@@ -683,12 +696,14 @@ if (isset($_GET['table']) && $_GET['table'] == 'temples') {
     $rows = array();
     $tempRow = array();
 
+    $row_number=1;
+
     foreach ($res as $row) {
 
         
         $operate = ' <a href="edit-temple.php?id=' . $row['id'] . '"><i class="fa fa-edit"></i>Edit</a>';  
         $operate .= ' <a class="text text-danger" href="delete-temple.php?id=' . $row['id'] . '"><i class="fa fa-trash"></i>Delete</a>';
-        $tempRow['id'] = $row['id'];
+        $tempRow['id'] = $row_number++;
         $tempRow['name'] = $row['name'];
         $tempRow['description'] = $row['description'];
         $tempRow['location'] = $row['location'];
