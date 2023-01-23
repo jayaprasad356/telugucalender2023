@@ -281,6 +281,8 @@ if (isset($_GET['table']) && $_GET['table'] == 'muhurtham_tab') {
         $operate .= ' <a class="text text-danger" href="delete-muhurtham-tab.php?id=' . $row['id'] . '"><i class="fa fa-trash"></i>Delete</a>';
         $tempRow['id'] =  $row_number++;
         $tempRow['muhurtham'] = $row['muhurtham'];
+        $tempRow['year'] = $row['year'];
+        $tempRow['month'] = $row['month'];
         $tempRow['title'] = $row['title'];
         $tempRow['description'] = $row['description'];
         $tempRow['operate'] = $operate;
