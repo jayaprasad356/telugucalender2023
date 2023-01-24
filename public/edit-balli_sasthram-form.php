@@ -65,9 +65,13 @@ $data = $row;
                                     <input type="text" class="form-control" name="title" value="<?php echo $data['title']?>" required>
                             </div>
                             <br>
-                             <div class="form-group">
-                                    <label for="exampleInputEmail1"> Description</label> <i class="text-danger asterik">*</i><?php echo isset($error['description']) ? $error['description'] : ''; ?>
-                                    <textarea type="text" rows="3" class="form-control" name="description"><?php echo $data['description']?></textarea>
+                            <div class="form-group">
+                                        <label for="exampleInputEmail1">Description :</label> <i class="text-danger asterik">*</i> <?php echo isset($error['description']) ? $error['description'] : ''; ?>
+                                        <textarea name="description" id="description" class="form-control" rows="16"><?php echo $data['description']; ?></textarea>
+                                        <script type="text/javascript" src="css/js/ckeditor/ckeditor.js"></script>
+                                        <script type="text/javascript">
+                                            CKEDITOR.replace('description');
+                                        </script>
                             </div>
                     </div>
                     <div class="box-footer">
@@ -82,3 +86,17 @@ $data = $row;
 <div class="separator"> </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+<script>
+    $('#edit_sasthram_form').validate({
+        rules: {
+            title: "required",
+            description: {
+                required: function(textarea) {
+                    CKEDITOR.instances[textarea.id].updateElement();
+                    var editorcontent = textarea.value.replace(/<[^>]*>/gi, '');
+                    return editorcontent.length === 0;
+                }
+            }
+        }
+    });
+</script>
