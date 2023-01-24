@@ -87,8 +87,7 @@ $temp = array();
 foreach ($res as $row) {
     $temp['id'] = $row['id'];
     $temp['muhurtham_id'] = $row['muhurtham_id'];
-    $temp['year'] = $row['year'];
-    $temp['month'] = $row['month'];
+    $temp['date'] = $row['date'];
     $temp['title'] = $row['title'];
     $temp['description'] = $row['description'];
     $rows[] = $temp;

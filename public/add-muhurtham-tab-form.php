@@ -10,13 +10,11 @@ if (isset($_POST['btnAdd'])) {
         $muhurtham_id= $db->escapeString($_POST['muhurtham_id']);
         $title= $db->escapeString($_POST['title']);
         $description= $db->escapeString($_POST['description']);
-        $year = $db->escapeString($_POST['year']);
-        $month = $db->escapeString($_POST['month']);
+        $date = $db->escapeString($_POST['date']);
 
-
-       if (!empty($muhurtham_id) && !empty($title) && !empty($description) && !empty($year)) {
+       if (!empty($muhurtham_id) && !empty($title) && !empty($description) && !empty($date)) {
          
-            $sql_query = "INSERT INTO muhurtham_tab (muhurtham_id,title,description,year,month)VALUES('$muhurtham_id','$title','$description','$year','$month')";
+            $sql_query = "INSERT INTO muhurtham_tab (muhurtham_id,title,description,date)VALUES('$muhurtham_id','$title','$description','$date')";
             $db->sql($sql_query);
             $result = $db->getResult();
             if (!empty($result)) {
@@ -27,10 +25,10 @@ if (isset($_POST['btnAdd'])) {
 
             if ($result == 1) {
                 
-                $error['add_muhurtham_tab'] = "<section class='content-header'>
+                $error['add_festival'] = "<section class='content-header'>
                                                 <span class='label label-success'>Muhurtham Tab Added Successfully</span> </section>";
             } else {
-                $error['add_muhurtham_tab'] = " <span class='label label-danger'>Failed</span>";
+                $error['add_festival'] = " <span class='label label-danger'>Failed</span>";
             }
             }
         }
@@ -38,7 +36,7 @@ if (isset($_POST['btnAdd'])) {
 <section class="content-header">
     <h1>Add Muhurtham tab<small><a href='muhurtham-tab.php'> <i class='fa fa-angle-double-left'></i>&nbsp;&nbsp;&nbsp;Back to muhurtham tab</a></small></h1>
 
-    <?php echo isset($error['add_muhurtham_tab']) ? $error['add_muhurtham_tab'] : ''; ?>
+    <?php echo isset($error['add_festival']) ? $error['add_festival'] : ''; ?>
     <ol class="breadcrumb">
         <li><a href="home.php"><i class="fa fa-home"></i> Home</a></li>
     </ol>
@@ -78,37 +76,13 @@ if (isset($_POST['btnAdd'])) {
                             <br>
                             <div class="row">
                                 <div class="form-group">
-                                    <div class='col-md-6'>
-                                        <label for="">Year</label> <i class="text-danger asterik">*</i>
-                                        <select id='year'  name="year" class='form-control' required>
-                                            <option value="">Select Year</option>
-                                                <?php
-                                                $sql = "SELECT * FROM `years`";
-                                                $db->sql($sql);
-                                                $result = $db->getResult();
-                                                foreach ($result as $value) {
-                                                ?>
-                                                    <option value='<?= $value['year'] ?>'><?= $value['year'] ?></option>
-                                            <?php } ?>
-                                        </select>
-                                    </div>
-                                    <div class='col-md-6'>
-                                        <label for="">Month</label> <i class="text-danger asterik">*</i>
-                                        <select id='month' name="month" class='form-control' required>
-                                            <option value="">Select Month</option>
-                                                <?php
-                                                $sql = "SELECT * FROM `months`";
-                                                $db->sql($sql);
-                                                $result = $db->getResult();
-                                                foreach ($result as $value) {
-                                                ?>
-                                                    <option value='<?= $value['month'] ?>'><?= $value['month'] ?></option>
-                                            <?php } ?>
-                                        </select>
+                                     <div class="col-md-6">
+                                            <label for="exampleInputEmail1">Date</label> <i class="text-danger asterik">*</i><?php echo isset($error['date']) ? $error['date'] : ''; ?>
+                                            <input type="date" class="form-control" name="date" required>
                                     </div>
                                 </div>
                             </div>
-                             <br>
+                            <br>
                            <div class="row">
                                 <div class="form-group">
                                      <div class="col-md-12">
@@ -146,14 +120,14 @@ if (isset($_POST['btnAdd'])) {
 </section>
 
 <div class="separator"> </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-valiyear/1.17.0/jquery.valiyear.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
 <script>
-    $('#add_festival_form').valiyear({
+    $('#add_festival_form').validate({
 
         ignore: [],
         debug: false,
         rules: {
-            year: "required",
+            date: "required",
             festival: "required",
         }
     });
