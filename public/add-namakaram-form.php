@@ -66,9 +66,13 @@ if (isset($_POST['btnAdd'])) {
                                         <input type="text" class="form-control" name="title" id = "title" required>
                                 </div>
                                 <br>
-                                 <div class="form-group">
-                                        <label for="exampleInputEmail1"> Description</label> <i class="text-danger asterik">*</i><?php echo isset($error['description']) ? $error['description'] : ''; ?>
-                                        <textarea type="text" rows="3" class="form-control" name="description" id = "description" required></textarea>
+                                <div class="form-group">
+                                    <label for="description">Description :</label> <i class="text-danger asterik">*</i><?php echo isset($error['description']) ? $error['description'] : ''; ?>
+                                    <textarea name="description" id="description" class="form-control" rows="8"></textarea>
+                                    <script type="text/javascript" src="css/js/ckeditor/ckeditor.js"></script>
+                                    <script type="text/javascript">
+                                        CKEDITOR.replace('description');
+                                    </script>
                                 </div>
          
                     </div>
@@ -96,7 +100,13 @@ if (isset($_POST['btnAdd'])) {
         debug: false,
         rules: {
             title: "required",
-            description: "required",
+            description: {
+                : function(textarea) {
+                    CKEDITOR.instances[textarea.id].updateElement();
+                    var editorcontent = textarea.value.replace(/<[^>]*>/gi, '');
+                    return editorcontent.length === 0;
+                }
+            },
 
         }
     });
