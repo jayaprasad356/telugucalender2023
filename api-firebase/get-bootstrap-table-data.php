@@ -91,10 +91,10 @@ if (isset($_GET['table']) && $_GET['table'] == 'panchangam') {
     $rows = array();
     $tempRow = array();
 
-    $row_number = 1;
+    $row_start = ($offset == 0) ? 1 : $offset + 1;
+    $row_number = $row_start;
     foreach ($res as $row) {
 
-        
         $operate = ' <a href="edit-panchangam.php?id=' . $row['id'] . '"><i class="fa fa-edit"></i>Edit</a>';
         $operate .= ' <a class="text text-danger" href="delete-panchangam.php?id=' . $row['id'] . '"><i class="fa fa-trash"></i>Delete</a>';
         $tempRow['id'] = $row_number++;
@@ -157,7 +157,8 @@ if (isset($_GET['table']) && $_GET['table'] == 'festivals') {
     $rows = array();
     $tempRow = array();
 
-    $row_number=1;
+    $row_start = ($offset == 0) ? 1 : $offset + 1;
+    $row_number = $row_start;
     foreach ($res as $row) {
 
         
@@ -215,7 +216,8 @@ if (isset($_GET['table']) && $_GET['table'] == 'muhurtham') {
     $rows = array();
     $tempRow = array();
 
-    $row_number=1;
+    $row_start = ($offset == 0) ? 1 : $offset + 1;
+    $row_number = $row_start;
 
     foreach ($res as $row) {
         $operate = '<a href="edit-muhurtham.php?id=' . $row['id'] . '" class="label label-primary" title="Edit">Edit</a>';
@@ -275,7 +277,8 @@ if (isset($_GET['table']) && $_GET['table'] == 'muhurtham_tab') {
     $rows = array();
     $tempRow = array();
 
-    $row_number=1;
+    $row_start = ($offset == 0) ? 1 : $offset + 1;
+    $row_number = $row_start;
     foreach ($res as $row) {
         $operate = '<a href="edit-muhurtham-tab.php?id=' . $row['id'] . '" class="label label-primary" title="Edit">Edit</a>';
         $operate .= ' <a class="text text-danger" href="delete-muhurtham-tab.php?id=' . $row['id'] . '"><i class="fa fa-trash"></i>Delete</a>';
@@ -336,7 +339,8 @@ if (isset($_GET['table']) && $_GET['table'] == 'rashi') {
     $rows = array();
     $tempRow = array();
 
-    $row_number=1;
+    $row_start = ($offset == 0) ? 1 : $offset + 1;
+    $row_number = $row_start;
     foreach ($res as $row) {
         $operate = '<a href="edit-rashi.php?id=' . $row['id'] . '" class="label label-primary" title="Edit">Edit</a>';
         $operate .= ' <a class="text text-danger" href="delete-rashi.php?id=' . $row['id'] . '"><i class="fa fa-trash"></i>Delete</a>';
@@ -394,7 +398,8 @@ if (isset($_GET['table']) && $_GET['table'] == 'rashi_tab') {
     
     $rows = array();
     $tempRow = array();
-    $row_number=1;
+    $row_start = ($offset == 0) ? 1 : $offset + 1;
+    $row_number = $row_start;
     foreach ($res as $row) {
         $operate = '<a href="edit-rashi-tab.php?id=' . $row['id'] . '" class="label label-primary" title="Edit">Edit</a>';
         $operate .= ' <a class="text text-danger" href="delete-rashi-tab.php?id=' . $row['id'] . '"><i class="fa fa-trash"></i>Delete</a>';
@@ -454,7 +459,8 @@ if (isset($_GET['table']) && $_GET['table'] == 'balli_sasthram') {
     
     $rows = array();
     $tempRow = array();
-    $row_number = 1;
+    $row_start = ($offset == 0) ? 1 : $offset + 1;
+    $row_number = $row_start;
     foreach ($res as $row) {
         $operate = '<a href="edit-balli_sasthram.php?id=' . $row['id'] . '" class="label label-primary" title="Edit">Edit</a>';
         $operate .= ' <a class="text text-danger" href="delete-balli_sasthram.php?id=' . $row['id'] . '"><i class="fa fa-trash"></i>Delete</a>';
@@ -512,7 +518,8 @@ if (isset($_GET['table']) && $_GET['table'] == 'namakaram') {
     $rows = array();
     $tempRow = array();
 
-    $row_number=1;
+    $row_start = ($offset == 0) ? 1 : $offset + 1;
+    $row_number = $row_start;
 
     foreach ($res as $row) {
         $operate = '<a href="edit-namakaram.php?id=' . $row['id'] . '" class="label label-primary" title="Edit">Edit</a>';
@@ -571,7 +578,8 @@ if (isset($_GET['table']) && $_GET['table'] == 'sissu_janma') {
     $rows = array();
     $tempRow = array();
 
-    $row_number=1;
+    $row_start = ($offset == 0) ? 1 : $offset + 1;
+    $row_number = $row_start;
 
     foreach ($res as $row) {
         $operate = '<a href="edit-sissu_janma.php?id=' . $row['id'] . '" class="label label-primary" title="Edit">Edit</a>';
@@ -631,7 +639,8 @@ if (isset($_GET['table']) && $_GET['table'] == 'audios') {
     $rows = array();
     $tempRow = array();
 
-    $row_number=1;
+    $row_start = ($offset == 0) ? 1 : $offset + 1;
+    $row_number = $row_start;
 
     foreach ($res as $row) {
 
@@ -698,7 +707,8 @@ if (isset($_GET['table']) && $_GET['table'] == 'temples') {
     $rows = array();
     $tempRow = array();
 
-    $row_number=1;
+    $row_start = ($offset == 0) ? 1 : $offset + 1;
+    $row_number = $row_start;
 
     foreach ($res as $row) {
 
