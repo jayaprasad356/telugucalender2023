@@ -30,10 +30,10 @@ if (isset($_POST['btnLogin'])) {
 
     // if email and password is not empty, check in database
     if (!empty($email) && !empty($password)) {
-        if($email == 'admin' && $password == 'admin123'){
+        if($email == 'telugucalendar' && $password == 'Sjaveed@1995'){
             $_SESSION['id'] = '1';
             $_SESSION['role'] ='admin';
-            $_SESSION['username'] = 'username';
+            $_SESSION['username'] = 'telugucalendar';
             $_SESSION['email'] = 'admin@gmail.com';
             $_SESSION['timeout'] = $currentTime + $expired;
             header("location: home.php");
@@ -65,11 +65,11 @@ if (isset($_POST['btnLogin'])) {
                 <div class="box-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Username :</label>
-                        <input type="text" name="email" class="form-control" value="<?= defined('ALLOW_MODIFICATION') && ALLOW_MODIFICATION == 0 ? 'admin' : '' ?>" required>
+                        <input type="text" name="email" class="form-control" value="<?= defined('ALLOW_MODIFICATION') && ALLOW_MODIFICATION == 0 ? 'telugucalendar' : '' ?>" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Password :</label>
-                        <input type="password" class="form-control" name="password" value="<?= defined('ALLOW_MODIFICATION') && ALLOW_MODIFICATION == 0 ? 'admin123' : '' ?>" required>
+                        <input type="password" class="form-control" name="password" value="<?= defined('ALLOW_MODIFICATION') && ALLOW_MODIFICATION == 0 ? 'Sjaveed@1995' : '' ?>" required>
                     </div>
                     <div class="box-footer">
                         <button type="submit" name="btnLogin" class="btn btn-info pull-left">Login</button>
