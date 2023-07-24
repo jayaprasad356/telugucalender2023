@@ -13,10 +13,9 @@ include_once('../includes/crud.php');
 $db = new Database();
 $db->connect();
 
-
 if (empty($_POST['fcm_id'])) {
     $response['success'] = false;
-    $response['message'] = "fcm Id is Empty";
+    $response['message'] = "FCM ID is Empty";
     print_r(json_encode($response));
     return false;
 }
@@ -27,6 +26,6 @@ $sql = "INSERT INTO `device_token` (fcm_id) VALUES ('$fcm_id')";
 $db->sql($sql);
 
 $response['success'] = true;
-$response['message'] = "device token added Successfully";
+$response['message'] = "Device token added Successfully";
 print_r(json_encode($response));
 ?>
