@@ -21,18 +21,18 @@ if (empty($_POST['muhurtham'])) {
 
 $muhurtham = $db->escapeString($_POST['muhurtham']);
 
-$sql_muhurtham_id = "SELECT id FROM muhurtham WHERE muhurtham = '$muhurtham'";
-$db->sql($sql_muhurtham_id);
-$res_muhurtham_id = $db->getResult();
+$sql = "SELECT id FROM muhurtham WHERE muhurtham = '$muhurtham'";
+$db->sql($sql);
+$res = $db->getResult();
 
-if (empty($res_muhurtham_id)) {
+if (empty($res)) {
     $response['success'] = false;
     $response['message'] = "Muhurtham Not Found";
     print_r(json_encode($response));
     return false;
 }
 
-$muhurtham_id = $res_muhurtham_id[0]['id'];
+$muhurtham_id = $res[0]['id'];
 
 $sql = "SELECT * FROM muhurtham_tab WHERE muhurtham_id = '$muhurtham_id'";
 $db->sql($sql);
