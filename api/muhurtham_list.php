@@ -12,50 +12,29 @@ include_once('../includes/crud.php');
 $db = new Database();
 $db->connect();
 
-if (empty($_POST['muhurtham'])) {
-    $response['success'] = false;
-    $response['message'] = "Muhurtham is Empty";
-    print_r(json_encode($response));
-    return false;
-}
-
 $muhurtham = $db->escapeString($_POST['muhurtham']);
-
-$sql_muhurtham_id = "SELECT id FROM muhurtham WHERE muhurtham = '$muhurtham'";
-$db->sql($sql_muhurtham_id);
-$res_muhurtham_id = $db->getResult();
-
-if (empty($res_muhurtham_id)) {
-    $response['success'] = false;
-    $response['message'] = "Muhurtham Not Found";
-    print_r(json_encode($response));
-    return false;
-}
-
-$muhurtham_id = $res_muhurtham_id[0]['id'];
-
-$sql = "SELECT * FROM muhurtham_tab WHERE muhurtham_id = '$muhurtham_id'";
+$sql = "SELECT * FROM `muhurtham` WHERE  muhurtham = '$muhurtham'";
 $db->sql($sql);
 $res = $db->getResult();
 $num = $db->numRows($res);
-
-if ($num >= 1) {
+if($num>=1){
     $rows = array();
+    $temp = array();
     foreach ($res as $row) {
+        $id = $row['id'];
         $temp['id'] = $row['id'];
-        $temp['muhurtham_id'] = $row['muhurtham_id'];
-        $temp['date'] = $row['date'];
-        $temp['title'] = $row['title'];
-        $temp['description'] = $row['description'];
+        $temp['muhurtham'] = $row['muhurtham'];
+       
+        $sql = "SELECT * FROM `muhurtham_tab` WHERE muhurtham_id = '$id'";
+        $db->sql($sql);
+        $res = $db->getResult();
+        $temp['muhurtham_tab'] = $res;
         $rows[] = $temp;
     }
     $response['success'] = true;
-    $response['message'] = "Data Listed Successfully";
+    $response['message'] = "Yearly List Successfullty";
     $response['data'] = $rows;
     print_r(json_encode($response));
-} else {
-    $response['success'] = false;
-    $response['message'] = "Not Found";
-    print_r(json_encode($response));
+
 }
 ?>
