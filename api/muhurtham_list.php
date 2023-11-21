@@ -1,6 +1,6 @@
 <?php
 header('Access-Control-Allow-Origin: *');
-header('Content-Type: application/json');
+header("Content-Type: application/json");
 header("Expires: 0");
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
 header("Cache-Control: no-store, no-cache, must-revalidate");
@@ -21,18 +21,18 @@ if (empty($_POST['muhurtham'])) {
 
 $muhurtham = $db->escapeString($_POST['muhurtham']);
 
-$sql = "SELECT id FROM muhurtham WHERE muhurtham = '$muhurtham'";
-$db->sql($sql);
-$res = $db->getResult();
+$sql_muhurtham_id = "SELECT id FROM muhurtham WHERE muhurtham = '$muhurtham'";
+$db->sql($sql_muhurtham_id);
+$res_muhurtham_id = $db->getResult();
 
-if (empty($res)) {
+if (empty($res_muhurtham_id)) {
     $response['success'] = false;
     $response['message'] = "Muhurtham Not Found";
     print_r(json_encode($response));
     return false;
 }
 
-$muhurtham_id = $res[0]['id'];
+$muhurtham_id = $res_muhurtham_id[0]['id'];
 
 $sql = "SELECT * FROM muhurtham_tab WHERE muhurtham_id = '$muhurtham_id'";
 $db->sql($sql);
