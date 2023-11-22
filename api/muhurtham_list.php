@@ -17,24 +17,31 @@ $sql = "SELECT * FROM `muhurtham` WHERE  muhurtham = '$muhurtham'";
 $db->sql($sql);
 $res = $db->getResult();
 $num = $db->numRows($res);
-if($num>=1){
+
+if ($num >= 1) {
     $rows = array();
     $temp = array();
+
     foreach ($res as $row) {
         $id = $row['id'];
         $temp['id'] = $row['id'];
         $temp['muhurtham'] = $row['muhurtham'];
-       
+
         $sql = "SELECT * FROM `muhurtham_tab` WHERE muhurtham_id = '$id'";
         $db->sql($sql);
         $res = $db->getResult();
         $temp['muhurtham_tab'] = $res;
         $rows[] = $temp;
     }
-    $response['success'] = true;
-    $response['message'] = "Yearly List Successfullty";
-    $response['data'] = $rows;
-    print_r(json_encode($response));
 
+    $response['success'] = true;
+    $response['message'] = "Muhurtham List Successfully";
+    $response['data'] = $rows;
+} else {
+    $response['success'] = false;
+    $response['message'] = "Data Not Found";
+    $response['data'] = array(); 
 }
+
+print_r(json_encode($response));
 ?>
