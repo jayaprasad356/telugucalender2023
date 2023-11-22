@@ -277,6 +277,10 @@ if (isset($_POST['btnAdd'])) {
                             <br>
                             <div class="row">
                                 <div class="form-group">
+                                <div class="col-md-3">
+                                            <label for="exampleInputEmail1">Amrutha Kalam</label> <i class="text-danger asterik">*</i><?php echo isset($error['amrutha_kalam']) ? $error['amrutha_kalam'] : ''; ?>
+                                            <input type="text" class="form-control" name="amrutha_kalam">
+                                    </div>
                                    <div class="col-md-3">
                                             <label for="exampleInputEmail1"> Abhijith Muhurtham</label> <i class="text-danger asterik">*</i><?php echo isset($error['abhijith_muhurtham']) ? $error['abhijith_muhurtham'] : ''; ?>
                                             <input type="text" class="form-control" name="abhijith_muhurtham">
@@ -285,10 +289,6 @@ if (isset($_POST['btnAdd'])) {
                                             <label for="exampleInputEmail1">Bhrama Muhurtham</label> <i class="text-danger asterik">*</i><?php echo isset($error['bhrama_muhurtham
 ']) ? $error['bhrama_muhurtham'] : ''; ?>
                                             <input type="text" class="form-control" name="bhrama_muhurtham">
-                                    </div>
-                                    <div class="col-md-3">
-                                            <label for="exampleInputEmail1">Amrutha Kalam</label> <i class="text-danger asterik">*</i><?php echo isset($error['amrutha_kalam']) ? $error['amrutha_kalam'] : ''; ?>
-                                            <input type="text" class="form-control" name="amrutha_kalam">
                                     </div>
                                     <div class="col-md-3">
                                             <label for="exampleInputEmail1">Rahukalam</label> <i class="text-danger asterik">*</i><?php echo isset($error['rahukalam']) ? $error['rahukalam'] : ''; ?>
@@ -304,16 +304,16 @@ if (isset($_POST['btnAdd'])) {
                                             <input type="text" class="form-control" name="yamakandam">
                                     </div>
                                     <div class="col-md-3">
+                                            <label for="exampleInputEmail1">Gulika</label> <i class="text-danger asterik">*</i><?php echo isset($error['gulika']) ? $error['gulika'] : ''; ?>
+                                            <input type="text" class="form-control" name="gulika">
+                                    </div>
+                                    <div class="col-md-3">
                                             <label for="exampleInputEmail1"> Dhurmuhurtham</label> <i class="text-danger asterik">*</i><?php echo isset($error['dhurmuhurtham']) ? $error['dhurmuhurtham'] : ''; ?>
                                             <input type="text" class="form-control" name="dhurmuhurtham">
                                     </div>
                                     <div class="col-md-3">
                                             <label for="exampleInputEmail1">Varjyam</label> <i class="text-danger asterik">*</i><?php echo isset($error['varjyam']) ? $error['varjyam'] : ''; ?>
                                             <input type="text" class="form-control" name="varjyam">
-                                    </div>
-                                    <div class="col-md-3">
-                                            <label for="exampleInputEmail1">Gulika</label> <i class="text-danger asterik">*</i><?php echo isset($error['gulika']) ? $error['gulika'] : ''; ?>
-                                            <input type="text" class="form-control" name="gulika">
                                     </div>
                                  </div>
                             </div>
