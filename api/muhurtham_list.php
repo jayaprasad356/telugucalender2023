@@ -40,8 +40,6 @@ if ($num >= 1) {
 } else {
     $response['success'] = false;
     $response['message'] = "Data Not Found";
-    $response['data'] = array(); 
+    print_r(json_encode($response));
 }
-
-print_r(json_encode($response));
 ?>
