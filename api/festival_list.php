@@ -12,30 +12,40 @@ include_once('../includes/crud.php');
 $db = new Database();
 $db->connect();
 
-if (empty($_POST['date'])) {
+if (empty($_POST['month']) || empty($_POST['year'])) {
     $response['success'] = false;
-    $response['message'] = "Date is Empty";
+    $response['message'] = "Month or Year is Empty";
     print_r(json_encode($response));
     return false;
 }
 
-$date_input = $db->escapeString($_POST['date']);
-$date_obj = DateTime::createFromFormat('d-m-Y', $date_input);
+$monthName = $db->escapeString($_POST['month']);
+$year = $db->escapeString($_POST['year']);
 
-if (!$date_obj) {
-    $date_obj = DateTime::createFromFormat('Y-m-d', $date_input);
-}
-
-if (!$date_obj) {
+// Validate year
+if (!preg_match('/^\d{4}$/', $year)) {
     $response['success'] = false;
-    $response['message'] = "Invalid date format";
+    $response['message'] = "Invalid year format";
     print_r(json_encode($response));
     return false;
 }
 
-$date = $date_obj->format('Y-m-d');
+// Convert month name to month number
+$dateObj = DateTime::createFromFormat('F', $monthName);
+if (!$dateObj) {
+    $response['success'] = false;
+    $response['message'] = "Invalid month name";
+    print_r(json_encode($response));
+    return false;
+}
 
-$sql = "SELECT * FROM `festivals` WHERE date='$date'";
+$month = $dateObj->format('m');
+
+// Construct date range for the entire month
+$start_date = $year . '-' . $month . '-01';
+$end_date = date('Y-m-t', strtotime($start_date));
+
+$sql = "SELECT * FROM `festivals` WHERE date BETWEEN '$start_date' AND '$end_date'";
 $db->sql($sql);
 $res = $db->getResult();
 $num = $db->numRows($res);
