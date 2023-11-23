@@ -12,31 +12,52 @@ include_once('../includes/crud.php');
 $db = new Database();
 $db->connect();
 
-$muhurtham = $db->escapeString($_POST['muhurtham']);
-$sql = "SELECT * FROM `muhurtham` WHERE  muhurtham = '$muhurtham'";
+$month = isset($_REQUEST['month']) ? $db->escapeString($_REQUEST['month']) : '';
+$year = isset($_REQUEST['year']) ? $db->escapeString($_REQUEST['year']) : '';
+$muhurtham_id = isset($_REQUEST['muhurtham_id']) ? $db->escapeString($_REQUEST['muhurtham_id']) : '';
+
+// Validate year
+if (!preg_match('/^\d{4}$/', $year)) {
+    $response['success'] = false;
+    $response['message'] = "Invalid year format";
+    print_r(json_encode($response));
+    return false;
+}
+
+// Convert month name to month number
+$dateObj = DateTime::createFromFormat('F', $month);
+if (!$dateObj) {
+    $response['success'] = false;
+    $response['message'] = "Invalid month name";
+    print_r(json_encode($response));
+    return false;
+}
+
+$month = $dateObj->format('m');
+
+// Construct date range for the entire month
+$start_date = $year . '-' . $month . '-01';
+$end_date = date('Y-m-t', strtotime($start_date));
+
+$sql = "SELECT * FROM `muhurtham_tab` WHERE muhurtham_id = '$muhurtham_id' AND date BETWEEN '$start_date' AND '$end_date'";
 $db->sql($sql);
 $res = $db->getResult();
 $num = $db->numRows($res);
 
 if ($num >= 1) {
     $rows = array();
-    $temp = array();
-
     foreach ($res as $row) {
-        $id = $row['id'];
         $temp['id'] = $row['id'];
-        $temp['muhurtham'] = $row['muhurtham'];
-
-        $sql = "SELECT * FROM `muhurtham_tab` WHERE muhurtham_id = '$id'";
-        $db->sql($sql);
-        $res = $db->getResult();
-        $temp['muhurtham_tab'] = $res;
+        $temp['muhurtham_id'] = $row['muhurtham_id'];
+        $temp['date'] = $row['date'];
+        $temp['title'] = $row['title'];
+        $temp['description'] = $row['description'];
         $rows[] = $temp;
     }
-
     $response['success'] = true;
-    $response['message'] = "Muhurtham List Successfully";
+    $response['message'] = "Muhurtham Listed Successfully";
     $response['data'] = $rows;
+    print_r(json_encode($response));
 } else {
     $response['success'] = false;
     $response['message'] = "Data Not Found";
