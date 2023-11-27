@@ -104,7 +104,7 @@ if (isset($_POST['btnAdd'])) {
                                     </div>
                                 </div>
                                 
-                            </div>
+                        
          
                     </div>  
                     <!-- /.box-body -->
