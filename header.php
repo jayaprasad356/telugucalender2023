@@ -238,7 +238,7 @@ $fn = new custom_functions;
                 </li>
                 <li class="treeview">
                     <a href="image_slider.php">
-                        <i class="fa fa-building"></i>
+                        <i class="fa fa-image"></i>
                         <span>Image Slider</span>
                     </a>
                 </li>
