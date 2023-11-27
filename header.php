@@ -236,6 +236,12 @@ $fn = new custom_functions;
                         <span>Temples</span>
                     </a>
                 </li>
+                <li class="treeview">
+                    <a href="image_slider.php">
+                        <i class="fa fa-building"></i>
+                        <span>Image Slider</span>
+                    </a>
+                </li>
             </ul>
             </section>
             <!-- /.sidebar -->
