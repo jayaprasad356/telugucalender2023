@@ -1,8 +1,8 @@
 
 <section class="content-header">
-    <h1>Image Slider /<small><a href="home.php"><i class="fa fa-home"></i> Home</a></small></h1>
+    <h1>Slider - 1 Data /<small><a href="home.php"><i class="fa fa-home"></i> Home</a></small></h1>
     <ol class="breadcrumb">
-        <a class="btn btn-block btn-default" href="add-image_slider.php"><i class="fa fa-plus-square"></i> Add New Image </a>
+        <a class="btn btn-block btn-default" href="add-slider.php"><i class="fa fa-plus-square"></i> Add New Slider - 1 Data</a>
     </ol>
 </section>
 
@@ -17,7 +17,7 @@
                     </div>
                     
                     <div  class="box-body table-responsive">
-                    <table id='users_table' class="table table-hover" data-toggle="table" data-url="api-firebase/get-bootstrap-table-data.php?table=image_slider" data-page-list="[5, 10, 20, 50, 100, 200]" data-show-refresh="true" data-show-columns="true" data-side-pagination="server" data-pagination="true" data-search="true" data-trim-on-search="false" data-filter-control="true" data-query-params="queryParams" data-sort-name="id" data-sort-order="desc" data-show-export="false" data-export-types='["txt","excel"]' data-export-options='{
+                    <table id='users_table' class="table table-hover" data-toggle="table" data-url="api-firebase/get-bootstrap-table-data.php?table=slider" data-page-list="[5, 10, 20, 50, 100, 200]" data-show-refresh="true" data-show-columns="true" data-side-pagination="server" data-pagination="true" data-search="true" data-trim-on-search="false" data-filter-control="true" data-query-params="queryParams" data-sort-name="id" data-sort-order="desc" data-show-export="false" data-export-types='["txt","excel"]' data-export-options='{
                             "fileName": "temples-list-<?= date('d-m-Y') ?>",
                             "ignoreColumn": ["operate"] 
                         }'>
@@ -25,9 +25,10 @@
                                 <tr>
                                     
                                     <th  data-field="id">S.No</th>
-                                    <th data-field="name" data-sortable="true">Name</th>
-                                    <th  data-field="image">Image</th>
-                                    <th data-field="link" data-sortable="true">Link</th>
+                                    <th data-field="date" data-sortable="true">Date</th>
+                                    <th data-field="year_name" data-sortable="true">Year Name</th>
+                                    <th  data-field="week_name" data-sortable="true">Week Name </th>
+                                    <th  data-field="good_timings" data-sortable="true">Good Timings</th>
                                     <th  data-field="operate" data-events="actionEvents">Action</th>
                                 </tr>
                             </thead>

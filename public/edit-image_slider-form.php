@@ -17,6 +17,7 @@ if (isset($_GET['id'])) {
 if (isset($_POST['btnEdit'])) {
 
 	$name = $db->escapeString(($_POST['name']));
+	$link = $db->escapeString(($_POST['link']));
    
    if (!empty($name))
     {
@@ -41,7 +42,7 @@ if (isset($_POST['btnEdit'])) {
 			$sql = "UPDATE image_slider SET `image`='" . $upload_image . "' WHERE `id`=" . $ID;
 			$db->sql($sql);
 		}
-             $sql_query = "UPDATE image_slider SET name='$name' WHERE id =  $ID";
+             $sql_query = "UPDATE image_slider SET name='$name',link='$link' WHERE id =  $ID";
 			 $db->sql($sql_query);
 			 $res = $db->getResult();
              $update_result = $db->getResult();
@@ -105,6 +106,10 @@ if (isset($_POST['btnCancel'])) { ?>
 									<div class='col-md-6'>
 									          <label for="exampleInputEmail1">Name</label> <i class="text-danger asterik">*</i>
 											  <input type="text" class="form-control" name="name" value="<?php echo $res[0]['name']; ?>">
+									</div>
+									<div class='col-md-6'>
+									          <label for="exampleInputEmail1">Link</label> <i class="text-danger asterik">*</i>
+											  <input type="text" class="form-control" name="link" value="<?php echo $res[0]['link']; ?>">
 									</div>
 								</div>
 						   </div>

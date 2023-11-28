@@ -10,7 +10,7 @@ if (isset($_POST['btnAdd'])) {
 
         $name = $db->escapeString(($_POST['name']));
 
-
+        $link = $db->escapeString(($_POST['link']));
         // get image info
         $menu_image = $db->escapeString($_FILES['temple_image']['name']);
         $image_error = $db->escapeString($_FILES['temple_image']['error']);
@@ -46,7 +46,7 @@ if (isset($_POST['btnAdd'])) {
                 // insert new data to menu table
                 $upload_image = 'upload/images/' . $menu_image;
          
-            $sql_query = "INSERT INTO image_slider (name,image)VALUES('$name','$upload_image')";
+            $sql_query = "INSERT INTO image_slider (name,image,link)VALUES('$name','$upload_image','$link')";
             $db->sql($sql_query);
             $result = $db->getResult();
             if (!empty($result)) {
@@ -92,6 +92,10 @@ if (isset($_POST['btnAdd'])) {
                                      <div class="col-md-6">
                                             <label for="exampleInputEmail1">Name</label> <i class="text-danger asterik">*</i><?php echo isset($error['name']) ? $error['name'] : ''; ?>
                                             <input type="text" class="form-control" name="name" required/>
+                                    </div>
+                                    <div class="col-md-6">
+                                            <label for="exampleInputEmail1">Link</label> <i class="text-danger asterik">*</i><?php echo isset($error['link']) ? $error['link'] : ''; ?>
+                                            <input type="text" class="form-control" name="link" required/>
                                     </div>
                                 </div>
                             </div>
