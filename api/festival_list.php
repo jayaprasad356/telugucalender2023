@@ -30,19 +30,7 @@ if (!preg_match('/^\d{4}$/', $year)) {
     return false;
 }
 
-// Convert month name to month number
-$dateObj = DateTime::createFromFormat('F', $monthName);
-if (!$dateObj) {
-    $response['success'] = false;
-    $response['message'] = "Invalid month name";
-    print_r(json_encode($response));
-    return false;
-}
-
-$month = $dateObj->format('m');
-
-// Construct date range for the entire month
-$start_date = $year . '-' . $month . '-01';
+$start_date = date('Y-m-01', strtotime("$year-$monthName"));
 $end_date = date('Y-m-t', strtotime($start_date));
 
 $sql = "SELECT * FROM `festivals` WHERE date BETWEEN '$start_date' AND '$end_date'";
