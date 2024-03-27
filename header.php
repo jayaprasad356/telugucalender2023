@@ -237,6 +237,30 @@ $fn = new custom_functions;
                     </a>
                 </li>
                 <li class="treeview">
+                    <a href="grahanalu.php">
+                        <i class="fa fa-calendar"></i>
+                        <span>Grahanalu</span>
+                    </a>
+                </li>
+                <li class="treeview">
+                    <a href="temples.php">
+                        <i class="fa fa-calendar"></i>
+                        <span>Nava Grahalu</span>
+                    </a>
+                </li>
+                <li class="treeview">
+                    <a href="temples.php">
+                        <i class="fa fa-calendar"></i>
+                        <span>Navarathnalu</span>
+                    </a>
+                </li>
+                <li class="treeview">
+                    <a href="temples.php">
+                        <i class="fa fa-calendar"></i>
+                        <span>Rudhraksha</span>
+                    </a>
+                </li>
+                <li class="treeview">
                     <a href="image_slider.php">
                         <i class="fa fa-image"></i>
                         <span>Image Slider</span>

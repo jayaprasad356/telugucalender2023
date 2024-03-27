@@ -12,6 +12,18 @@ include_once('../includes/functions.php');
 $function = new functions;
 
 
+//Grahalu tab variant
+if (isset($_POST['delete_variant'])) {
+    $grahalu_id = $db->escapeString(($_POST['id']));
+    $sql = "DELETE FROM grahanalu_tab_variant WHERE id = $grahalu_id";
+    $db->sql($sql);
+    $result = $db->getResult();
+    if ($result) {
+        echo 1;
+    } else {
+        echo 0;
+    }
+}
 if (isset($_POST['week'])) {
     $year = $db->escapeString(($_POST['year']));
     $month = $db->escapeString(($_POST['month']));

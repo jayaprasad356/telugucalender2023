@@ -158,7 +158,7 @@ if (isset($_POST['btnAdd'])) {
         debug: false,
         rules: {
             title: "required",
-            lyrics="required",
+            lyrics:"required",
             god_image: "required",
         }
     });

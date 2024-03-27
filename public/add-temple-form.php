@@ -153,7 +153,7 @@ if (isset($_POST['btnAdd'])) {
         debug: false,
         rules: {
             name: "required",
-            description="required",
+            description:"required",
             location: "required",
         }
     });

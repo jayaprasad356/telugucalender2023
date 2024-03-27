@@ -101,7 +101,7 @@ if (isset($_POST['btnAdd'])) {
         rules: {
             title: "required",
             description: {
-                : function(textarea) {
+                function(textarea) {
                     CKEDITOR.instances[textarea.id].updateElement();
                     var editorcontent = textarea.value.replace(/<[^>]*>/gi, '');
                     return editorcontent.length === 0;
