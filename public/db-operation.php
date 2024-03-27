@@ -12,10 +12,22 @@ include_once('../includes/functions.php');
 $function = new functions;
 
 
-//Grahalu tab variant
+//Grahanalu tab variant
 if (isset($_POST['delete_variant'])) {
-    $grahalu_id = $db->escapeString(($_POST['id']));
-    $sql = "DELETE FROM grahanalu_tab_variant WHERE id = $grahalu_id";
+    $grahanalu_tab_id = $db->escapeString(($_POST['id']));
+    $sql = "DELETE FROM grahanalu_tab_variant WHERE id = $grahanalu_tab_id";
+    $db->sql($sql);
+    $result = $db->getResult();
+    if ($result) {
+        echo 1;
+    } else {
+        echo 0;
+    }
+}
+//Navagrahalu tab variant
+if (isset($_POST['delete_variant'])) {
+    $navagrahalu_tab_id = $db->escapeString(($_POST['id']));
+    $sql = "DELETE FROM navagrahalu_tab_variant WHERE id = $navagrahalu_tab_id";
     $db->sql($sql);
     $result = $db->getResult();
     if ($result) {

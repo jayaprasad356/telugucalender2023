@@ -243,7 +243,7 @@ $fn = new custom_functions;
                     </a>
                 </li>
                 <li class="treeview">
-                    <a href="temples.php">
+                    <a href="navagrahalu.php">
                         <i class="fa fa-calendar"></i>
                         <span>Nava Grahalu</span>
                     </a>

@@ -923,7 +923,7 @@ if (isset($_GET['table']) && $_GET['table'] == 'slider') {
     print_r(json_encode($bulkData));
 }
 
-//ballisasthram table goes here
+//Grahanalu table goes here
 if (isset($_GET['table']) && $_GET['table'] == 'grahanalu') {
     $offset = 0;
     $limit = 10;
@@ -971,6 +971,62 @@ if (isset($_GET['table']) && $_GET['table'] == 'grahanalu') {
         $operate .= ' <a class="text text-danger" href="delete-grahanalu.php?id=' . $row['id'] . '"><i class="fa fa-trash"></i>Delete</a>';
         $tempRow['id'] = $row_number++;
         $tempRow['year'] = $row['year'];
+        $tempRow['title'] = $row['title'];
+        $tempRow['description'] = $row['description'];
+        $tempRow['operate'] = $operate;
+        $rows[] = $tempRow;
+    }
+    $bulkData['rows'] = $rows;
+    print_r(json_encode($bulkData));
+
+}
+//Navagrahanalu table goes here
+if (isset($_GET['table']) && $_GET['table'] == 'navagrahalu') {
+    $offset = 0;
+    $limit = 10;
+    $where = '';
+    $sort = 'id';
+    $order = 'DESC';
+    if (isset($_GET['offset']))
+        $offset = $db->escapeString($_GET['offset']);
+    if (isset($_GET['limit']))
+        $limit = $db->escapeString($_GET['limit']);
+    if (isset($_GET['sort']))
+        $sort = $db->escapeString($_GET['sort']);
+    if (isset($_GET['order']))
+        $order = $db->escapeString($_GET['order']);
+
+    if (isset($_GET['search']) && !empty($_GET['search'])) {
+        $search = $db->escapeString($_GET['search']);
+        $where .= "WHERE id like '%" . $search . "%' OR title like '%" . $search . "%' OR description like '%" . $search . "%'";
+    }
+    if (isset($_GET['sort'])){
+        $sort = $db->escapeString($_GET['sort']);
+    }
+    if (isset($_GET['order'])){
+        $order = $db->escapeString($_GET['order']);
+    }
+    $sql = "SELECT COUNT(`id`) as total FROM `navagrahalu_tab` ";
+    $db->sql($sql);
+    $res = $db->getResult();
+    foreach ($res as $row)
+        $total = $row['total'];
+   
+    $sql = "SELECT * FROM navagrahalu_tab " . $where . " ORDER BY " . $sort . " " . $order . " LIMIT " . $offset . ", " . $limit;
+    $db->sql($sql);
+    $res = $db->getResult();
+
+    $bulkData = array();
+    $bulkData['total'] = $total;
+    
+    $rows = array();
+    $tempRow = array();
+    $row_start = ($offset == 0) ? 1 : $offset + 1;
+    $row_number = $row_start;
+    foreach ($res as $row) {
+        $operate = '<a href="edit-navagrahalu.php?id=' . $row['id'] . '" class="label label-primary" title="Edit">Edit</a>';
+        $operate .= ' <a class="text text-danger" href="delete-navagrahalu.php?id=' . $row['id'] . '"><i class="fa fa-trash"></i>Delete</a>';
+        $tempRow['id'] = $row_number++;
         $tempRow['title'] = $row['title'];
         $tempRow['description'] = $row['description'];
         $tempRow['operate'] = $operate;
