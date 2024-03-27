@@ -36,6 +36,30 @@ if (isset($_POST['delete_variant'])) {
         echo 0;
     }
 }
+//Navarathnalu tab variant
+if (isset($_POST['delete_variant'])) {
+    $navarathnalu_tab_id = $db->escapeString(($_POST['id']));
+    $sql = "DELETE FROM navarathnalu_tab_variant WHERE id = $navarathnalu_tab_id";
+    $db->sql($sql);
+    $result = $db->getResult();
+    if ($result) {
+        echo 1;
+    } else {
+        echo 0;
+    }
+}
+//Rudhraksha tab variant
+if (isset($_POST['delete_variant'])) {
+    $rudhraksha_tab_id = $db->escapeString(($_POST['id']));
+    $sql = "DELETE FROM rudhraksha_tab_variant WHERE id = $rudhraksha_tab_id";
+    $db->sql($sql);
+    $result = $db->getResult();
+    if ($result) {
+        echo 1;
+    } else {
+        echo 0;
+    }
+}
 if (isset($_POST['week'])) {
     $year = $db->escapeString(($_POST['year']));
     $month = $db->escapeString(($_POST['month']));
