@@ -195,6 +195,18 @@ $fn = new custom_functions;
                     </a>
                 </li>
                 <li class="treeview">
+                    <a href="govinda_namalu.php">
+                        <i class="fa fa-calendar"></i>
+                        <span>Govinda Namalu</span>
+                    </a>
+                </li>
+                <li class="treeview">
+                    <a href="alivelu_manga.php">
+                        <i class="fa fa-calendar"></i>
+                        <span>Alivelu Manga</span>
+                    </a>
+                </li>
+                <li class="treeview">
                     <a href="festivals.php">
                         <i class="fa fa-calendar"></i>
                         <span>Festivals</span>
