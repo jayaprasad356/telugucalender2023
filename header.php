@@ -207,6 +207,18 @@ $fn = new custom_functions;
                     </a>
                 </li>
                 <li class="treeview">
+                    <a href="pushkaralu.php">
+                        <i class="fa fa-calendar"></i>
+                        <span>Pushkaralu</span>
+                    </a>
+                </li>
+                <li class="treeview">
+                    <a href="vasthu_tips.php">
+                        <i class="fa fa-calendar"></i>
+                        <span>Vasthu Tips</span>
+                    </a>
+                </li>
+                <li class="treeview">
                     <a href="festivals.php">
                         <i class="fa fa-calendar"></i>
                         <span>Festivals</span>

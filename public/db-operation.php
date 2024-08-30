@@ -12,6 +12,20 @@ include_once('../includes/functions.php');
 $function = new functions;
 
 
+
+//pushkaralu tab variant
+if (isset($_POST['delete_variant'])) {
+    $pushkaralu_id = $db->escapeString(($_POST['id']));
+    $sql = "DELETE FROM pushkaralu_variant WHERE id = $pushkaralu_id";
+    $db->sql($sql);
+    $result = $db->getResult();
+    if ($result) {
+        echo 1;
+    } else {
+        echo 0;
+    }
+}
+
 //Grahanalu tab variant
 if (isset($_POST['delete_variant'])) {
     $grahanalu_tab_id = $db->escapeString(($_POST['id']));
