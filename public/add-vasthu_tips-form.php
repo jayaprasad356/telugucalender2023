@@ -32,7 +32,7 @@ if (isset($_POST['btnAdd'])) {
             if ($result == 1) {
                 
                 $error['add_sasthram'] = "<section class='content-header'>
-                                                <span class='label label-success'>Govinda Namalu Added Successfully</span> </section>";
+                                                <span class='label label-success'>Vasthu Tips Added Successfully</span> </section>";
             } else {
                 $error['add_sasthram'] = " <span class='label label-danger'>Failed</span>";
             }
