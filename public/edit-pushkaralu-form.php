@@ -58,7 +58,7 @@ if (isset($_POST['btnEdit'])) {
                         }
                     }
                 }
-                    $error['update_pushkaralu'] = " <section class='content-header'><span class='label label-success'>Grahanalu  updated Successfully</span></section>";
+                    $error['update_pushkaralu'] = " <section class='content-header'><span class='label label-success'>Pushkaralu updated Successfully</span></section>";
             } else {
                 $error['update_pushkaralu'] = " <span class='label label-danger'>Failed to update</span>";
             }
