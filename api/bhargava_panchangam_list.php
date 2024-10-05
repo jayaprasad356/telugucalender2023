@@ -13,8 +13,15 @@ $db = new Database();
 $db->connect();
 
 
+if (empty($_POST['day'])) {
+    $response['success'] = false;
+    $response['message'] = "day is Empty";
+    print_r(json_encode($response));
+    return false;
+}
+$day = $db->escapeString($_POST['day']);
 
-$sql = "SELECT * FROM `bhargava_panchangam`";
+$sql = "SELECT * FROM `bhargava_panchangam`  WHERE day = '$day' ";
 $db->sql($sql);
 $res = $db->getResult();
 $num = $db->numRows($res);
